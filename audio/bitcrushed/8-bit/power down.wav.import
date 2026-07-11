@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcg6vhk1j078d"
+path="res://.godot/imported/power down.wav-5bb0dfedb8551ac0c19dd56322b5ed7b.sample"
+
+[deps]
+
+source_file="res://audio/bitcrushed/8-bit/power down.wav"
+dest_files=["res://.godot/imported/power down.wav-5bb0dfedb8551ac0c19dd56322b5ed7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

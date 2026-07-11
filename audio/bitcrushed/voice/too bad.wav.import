@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bthrt283p65ib"
+path="res://.godot/imported/too bad.wav-1d352e0d041cbef55633f05d46ff428b.sample"
+
+[deps]
+
+source_file="res://audio/bitcrushed/voice/too bad.wav"
+dest_files=["res://.godot/imported/too bad.wav-1d352e0d041cbef55633f05d46ff428b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

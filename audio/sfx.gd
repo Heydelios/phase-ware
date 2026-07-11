@@ -1,0 +1,39 @@
+extends AudioStreamPlayer
+class_name SFX
+
+var sfx = {}
+
+func _add_audio_directory(dir:String):
+	for f in ResourceLoader.list_directory(dir):
+		var res_name = "%s/%s" % [dir, f]
+		if f.ends_with(".wav"):
+			var res = ResourceLoader.load(res_name)
+			if res:
+				var key = f.get_basename()
+				assert(key)
+				assert(not sfx.has(key))
+				sfx[key] = res
+		else:
+			_add_audio_directory(res_name)
+
+func get_playback() -> AudioStreamPlaybackPolyphonic:
+	if not has_stream_playback():
+		play()
+	return get_stream_playback()
+
+func play_sfx(effect_name:String):
+	if not sfx.has(effect_name):
+		print("Warn: no sfx named %s" % effect_name)
+		return
+	var pb = get_playback()
+	if not pb:
+		print("Warn: audio is fucked while attempting to play %s" % effect_name)
+		return
+	pb.play_stream(sfx[effect_name])
+
+func _ready():
+	print("building sfx table:")
+	_add_audio_directory("res://audio/bitcrushed")
+	print(sfx)
+	stream = AudioStreamPolyphonic.new()
+	stream.polyphony = 8

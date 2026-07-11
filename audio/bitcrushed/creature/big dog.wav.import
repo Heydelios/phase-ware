@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lcv3i0ka5tm3"
+path="res://.godot/imported/big dog.wav-5872ff186533336130a7222eb7dc7e42.sample"
+
+[deps]
+
+source_file="res://audio/bitcrushed/creature/big dog.wav"
+dest_files=["res://.godot/imported/big dog.wav-5872ff186533336130a7222eb7dc7e42.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
