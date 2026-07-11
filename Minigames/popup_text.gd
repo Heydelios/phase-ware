@@ -1,0 +1,8 @@
+extends Label
+
+@onready var prompt : String
+
+func _ready() -> void:
+	text = prompt
+	visible = true
+	get_tree().create_timer(1).timeout.connect(hide)

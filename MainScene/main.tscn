@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://4n24a6m75vx0"]
 
-[ext_resource type="Script" uid="uid://bmbl86r3ilht8" path="res://Scenes/main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bmbl86r3ilht8" path="res://MainScene/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="2_bo1nx"]
 
 [node name="Main" type="Node2D" unique_id=1270216196]
 script = ExtResource("1_ig7tw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=582830494]
+visible = false
 position = Vector2(1236, 689)
 texture = ExtResource("2_bo1nx")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1610300915]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_bo1nx")
+expand_mode = 1
+
+[node name="Anchor" type="Node" parent="." unique_id=1451415129]
+unique_name_in_owner = true
