@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://dg4lc4v8v62r0"]
+
+[ext_resource type="Script" uid="uid://q751kg55moyp" path="res://Scripts/MinigameList.gd" id="1_gadvr"]
+
+[resource]
+script = ExtResource("1_gadvr")
+path_list = Array[String](["res://Minigames/TestMinigame/minigame.tscn", "res://Minigames/JordanMinigame/example_game.tscn"])

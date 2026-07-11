@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b6soyn3pqrbe4"]
+
+[ext_resource type="Script" uid="uid://cljmgkkkgnla8" path="res://Scenes/intro.gd" id="1_b226h"]
+[ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="2_duh1u"]
+
+[node name="Intro" type="Node2D" unique_id=1288807579]
+script = ExtResource("1_b226h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1750881320]
+texture = ExtResource("2_duh1u")
