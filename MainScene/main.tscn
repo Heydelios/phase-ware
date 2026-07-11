@@ -2,6 +2,62 @@
 
 [ext_resource type="Script" uid="uid://bmbl86r3ilht8" path="res://MainScene/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://belbcnmqwlyno" path="res://UI/Healthbar/health_bar.tscn" id="3_451ce"]
+[ext_resource type="Texture2D" uid="uid://cg17h0nl5843d" path="res://Placeholders/main_background.png" id="3_rg2y2"]
+
+[sub_resource type="Animation" id="Animation_rg2y2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_phgjk"]
+resource_name = "zoom_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.09, 2.09)]
+}
+
+[sub_resource type="Animation" id="Animation_b8f1d"]
+resource_name = "zoom_out"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.09, 2.09), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8f1d"]
+_data = {
+&"RESET": SubResource("Animation_rg2y2"),
+&"zoom_in": SubResource("Animation_phgjk"),
+&"zoom_out": SubResource("Animation_b8f1d")
+}
 
 [node name="Main" type="Node2D" unique_id=1270216196]
 script = ExtResource("1_ig7tw")
@@ -12,10 +68,24 @@ position = Vector2(1236, 689)
 texture = ExtResource("2_bo1nx")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1610300915]
-offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("2_bo1nx")
+unique_name_in_owner = true
+offset_right = 1336.842
+offset_bottom = 750.14355
+pivot_offset = Vector2(690.255, 0)
+texture = ExtResource("3_rg2y2")
 expand_mode = 1
 
-[node name="Anchor" type="Node" parent="." unique_id=1451415129]
+[node name="HealthBar" parent="Background" unique_id=978313437 instance=ExtResource("3_451ce")]
 unique_name_in_owner = true
+layout_mode = 1
+offset_left = -668.421
+offset_top = -14.51355
+offset_right = -132.42102
+offset_bottom = 199.48645
+
+[node name="Anchor" type="Node" parent="Background" unique_id=1451415129]
+unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2030743586]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_b8f1d")

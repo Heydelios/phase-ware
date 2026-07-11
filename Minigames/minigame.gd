@@ -2,7 +2,7 @@ class_name Minigame
 extends Node2D
 
 @export var game_name : String
-@export var control_type : int
+@export var control_type : Main.control_type
 @onready var speed : float = 1
 
 var time_allowed : float = 100
@@ -19,13 +19,14 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.is_action_pressed("spacebar"):
-			Events.minigame_won.emit()
-			queue_free()
-		if event.pressed and event.is_action_pressed("up"):
-			_minigame_loss()
-		
+	pass
+
+
+
 func _minigame_loss() -> void:
 	Events.minigame_lost.emit()
+	queue_free()
+
+func _minigame_won() -> void:
+	Events.minigame_won.emit()
 	queue_free()

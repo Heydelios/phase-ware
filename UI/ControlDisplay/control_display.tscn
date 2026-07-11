@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://duwj1py72ecfe"]
+
+[ext_resource type="Script" uid="uid://cvvmpb42c1mgd" path="res://UI/ControlDisplay/control_display.gd" id="1_gcfxr"]
+
+[node name="ControlDisplay" type="TextureRect" unique_id=1117378297]
+custom_minimum_size = Vector2(220, 220)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 66.965
+offset_right = 110.0
+offset_bottom = 286.9651
+grow_horizontal = 2
+script = ExtResource("1_gcfxr")

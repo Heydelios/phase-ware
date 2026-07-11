@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dyfsknl8t7dfr"]
+
+[ext_resource type="Script" uid="uid://ccw6crxs3xs73" path="res://UI/Television/minigame_start.gd" id="1_bayxi"]
+[ext_resource type="Script" uid="uid://cvvmpb42c1mgd" path="res://UI/ControlDisplay/control_display.gd" id="1_wq7y7"]
+[ext_resource type="Texture2D" uid="uid://b03ofxmc7gk0c" path="res://UI/ControlDisplay/wasd_icon.png" id="2_ydlbs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bayxi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bayxi"]
+
+[node name="MinigameStart" type="Control" unique_id=2128154809]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bayxi")
+
+[node name="ControlDisplay" type="TextureRect" parent="." unique_id=308252282]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 58.0
+offset_right = 20.0
+offset_bottom = 98.00002
+grow_horizontal = 2
+texture = ExtResource("2_ydlbs")
+script = ExtResource("1_wq7y7")
+metadata/_custom_type_script = "uid://cvvmpb42c1mgd"
+
+[node name="MinigameCounter" type="TextureRect" parent="." unique_id=1949970207]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 0
+offset_left = 530.0
+offset_top = 58.0
+offset_right = 750.0
+offset_bottom = 278.0
+texture = SubResource("CanvasTexture_bayxi")
+expand_mode = 1
+
+[node name="Value" type="Label" parent="MinigameCounter" unique_id=716745477]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 128
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Snow" type="TextureRect" parent="." unique_id=219043319]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 0
+offset_left = 530.0
+offset_top = 58.0
+offset_right = 750.0
+offset_bottom = 278.0
+texture = SubResource("NoiseTexture2D_bayxi")
+expand_mode = 1

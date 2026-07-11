@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tfrd4sh580mv"
-path="res://.godot/imported/clock.png-004c5dd3a976aff4262019e680f74f95.ctex"
+uid="uid://dhdn583wq682i"
+path="res://.godot/imported/point_icon.png-dcfbc8069914c219fe78e821c0677ba0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Clock/clock.png"
-dest_files=["res://.godot/imported/clock.png-004c5dd3a976aff4262019e680f74f95.ctex"]
+source_file="res://UI/ControlDisplay/point_icon.png"
+dest_files=["res://.godot/imported/point_icon.png-dcfbc8069914c219fe78e821c0677ba0.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bf5gy570leb4q"]
 
-[ext_resource type="Texture2D" uid="uid://tfrd4sh580mv" path="res://Clock/clock.png" id="1_ga67c"]
-[ext_resource type="Script" uid="uid://c5krmd31roxln" path="res://Clock/clock.gd" id="1_s7hhp"]
+[ext_resource type="Texture2D" uid="uid://tfrd4sh580mv" path="res://UI/Clock/clock.png" id="1_ga67c"]
+[ext_resource type="Script" uid="uid://c5krmd31roxln" path="res://UI/Clock/clock.gd" id="1_s7hhp"]
 [ext_resource type="Script" uid="uid://cuqsrnpd4l723" path="res://utils/handy_atlas.gd" id="2_1ixnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0t2r4"]

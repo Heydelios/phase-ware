@@ -8,3 +8,6 @@ func _process(delta: float) -> void:
 func _on_texture_button_pressed() -> void:
 	Events.minigame_won.emit()
 	queue_free()
+
+func _unhandled_input(event):
+	pass

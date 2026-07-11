@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bcjfjnem71v7w"]
 
-[ext_resource type="Script" uid="uid://bj8mao1xq2nsv" path="res://Minigames/TestMinigame/minigame.gd" id="1_4bqly"]
+[ext_resource type="Script" uid="uid://bj8mao1xq2nsv" path="res://Minigames/minigame.gd" id="1_4bqly"]
 [ext_resource type="Texture2D" uid="uid://u1hhpmcbpxp6" path="res://Placeholders/selection_dizzy.png" id="2_h2c4i"]
-[ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://Clock/clock.tscn" id="3_oko1j"]
+[ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://UI/Clock/clock.tscn" id="3_oko1j"]
 
 [node name="Minigame" type="Node2D" unique_id=599418719]
 script = ExtResource("1_4bqly")

@@ -1,18 +1,22 @@
+class_name Main
 extends Node2D
 
 enum main_state {INTRO, MINIGAME_START, IN_GAME, MINIGAME_END, GAME_OVER}
-enum control_type {WASD, MASH, MOUSE_POINT, MOUSE_CLICK}
+enum control_type {WASD, MASH, MOUSE_POINT, POINT_AND_CLICK}
 var state := main_state.INTRO
 var intro_scene := preload("res://IntroCutscene/intro.tscn")
 
 var minigame_list : Array[String] = preload("res://MinigameList.tres").path_list
 var next_minigame : Minigame
 var minigame_prompt := preload("res://Minigames/popup_text.tscn")
+var main_screen_display := preload("res://UI/Television/minigame_start.tscn")
 
 var timer : float = 0
 var lives : int = 4
 var speed : float = 1
-var stage_number : int = 0
+var stage_number : int = 1
+
+@onready var anim_player := %AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,8 +40,21 @@ func _process(delta: float) -> void:
 
 
 func minigame_start(delta: float) -> void:
+	var start_anim_duration : float = 3
+	
+	if timer == 0:
+		var main_screen : StartScreen = main_screen_display.instantiate()
+		main_screen.control_type = next_minigame.control_type
+		main_screen.duration = start_anim_duration
+		main_screen.minigame_count = stage_number
+		%Background.add_child(main_screen)
+	
 	timer += delta
-	var start_anim_duration : float = .5
+	
+	if timer >= start_anim_duration-.2:
+		%HealthBar.anim_player.play("fade_out")
+		anim_player.play("zoom_in")
+		
 	if timer >= start_anim_duration:
 		timer = 0
 		state = main_state.IN_GAME
@@ -45,9 +62,12 @@ func minigame_start(delta: float) -> void:
 		popup.prompt = next_minigame.game_name
 		%Anchor.add_child(next_minigame)
 		%Anchor.add_child(popup)
+		
 	print("gamestart " + str(timer))
 	
 func minigame_end(delta: float) -> void:
+	if timer == 0:
+		anim_player.play("zoom_out")
 	var end_anim_duration : float = .5
 	timer += delta
 	if timer >= end_anim_duration:
@@ -79,12 +99,14 @@ func _on_minigame_lost() -> void:
 		return
 	#Play minigame lost animation
 	var loss_anim_duration : float = .5
+	%HealthBar.lose_hp(lives)
 	print("minigame lost")
 	await get_tree().create_timer(loss_anim_duration).timeout
 	_on_minigame_end()
 	
 func _on_minigame_end() -> void:
 	state = main_state.MINIGAME_END
+	%HealthBar.anim_player.play("fade_in")
 	stage_number += 1
 	
 func _on_game_over() -> void:
