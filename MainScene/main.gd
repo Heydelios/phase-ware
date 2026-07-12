@@ -114,7 +114,7 @@ func _on_intro_end() -> void:
 	next_minigame = load(minigame_list.pick_random()).instantiate()
 	
 	#Choose first minigame for debug purposes
-	#var scene := load("res://Minigames/JordanMinigame/example_game.tscn")
+	#var scene := load("res://Minigames/bnuuy catch/bnuuy catch.tscn")
 	#next_minigame = scene.instantiate()
 	
 	print("intro end")

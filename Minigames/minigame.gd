@@ -3,6 +3,7 @@ extends Node
 
 @export var game_name : String
 @export var control_type : Main.control_type
+@export var should_win_on_timeover : bool = false
 
 var time_over : bool = false
 var win_cutscene_duration = .5
@@ -13,7 +14,10 @@ func _ready() -> void:
 
 func _time_over() -> void:
 	time_over = true
-	_minigame_loss()
+	if should_win_on_timeover:
+		_minigame_won()
+	else:
+		_minigame_loss()
 
 func _minigame_loss() -> void:
 	#need delay to play loss anim

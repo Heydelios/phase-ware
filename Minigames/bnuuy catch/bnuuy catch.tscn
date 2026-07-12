@@ -19,6 +19,7 @@ size = Vector2(162, 231)
 script = ExtResource("2_ixox0")
 game_name = "TRAP"
 control_type = 3
+should_win_on_timeover = true
 
 [node name="Clock" parent="." index="1" unique_id=817307990]
 layout_mode = 1
