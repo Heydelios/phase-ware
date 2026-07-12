@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg17h0nl5843d"
-path="res://.godot/imported/main_background.png-b23858ca216b33d2f5e1d9ce904ece29.ctex"
+uid="uid://djowa0ovdqfcr"
+path="res://.godot/imported/health_point.png-947493462216d9922a76fb85a72a941b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Placeholders/main_background.png"
-dest_files=["res://.godot/imported/main_background.png-b23858ca216b33d2f5e1d9ce904ece29.ctex"]
+source_file="res://UI/Healthbar/health_point.png"
+dest_files=["res://.godot/imported/health_point.png-947493462216d9922a76fb85a72a941b.ctex"]
 
 [params]
 

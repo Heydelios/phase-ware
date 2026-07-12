@@ -10,13 +10,14 @@ var minigame_list : Array[String] = preload("res://MinigameList.tres").path_list
 var next_minigame : Minigame
 var minigame_prompt := preload("res://Minigames/popup_text.tscn")
 var main_screen_display := preload("res://UI/Television/minigame_start.tscn")
+var should_transition := true
 
 var timer : float = 0
 var speed : float = 1
 var lives : int = 4
 var stage_number : int = 1
 var wins : int = 0
-var nb_of_wins_to_speedup : int = 2
+var nb_of_wins_to_speedup : int = 3
 var nb_of_wins_to_boss : int = 11
 var should_speedup : bool = false
 var should_start_boss : bool = false
@@ -54,26 +55,30 @@ func _process(delta: float) -> void:
 func minigame_start(delta: float) -> void:
 	var start_anim_duration : float = 3
 	
+	
 	if timer == 0:
 		var main_screen : StartScreen = main_screen_display.instantiate()
 		main_screen.control_type = next_minigame.control_type
 		main_screen.duration = start_anim_duration
 		main_screen.minigame_count = stage_number
 		%Background.add_child(main_screen)
+		should_transition = true
 	
 	timer += delta
 	
-	if timer >= start_anim_duration-.2:
+	if timer >= start_anim_duration-.2 && should_transition:
 		%HealthBar.anim_player.play("fade_out")
 		anim_player.play("zoom_in")
+		var popup = minigame_prompt.instantiate()
+		popup.prompt = next_minigame.game_name
+		%TextAnchor.add_child(popup)
+		should_transition = false
 		
 	if timer >= start_anim_duration:
 		timer = 0
 		state = main_state.IN_GAME
-		var popup = minigame_prompt.instantiate()
-		popup.prompt = next_minigame.game_name
-		%Anchor.add_child(next_minigame)
-		%Anchor.add_child(popup)
+		%GameAnchor.add_child(next_minigame)
+		
 		
 	#print("gamestart " + str(timer))
 	

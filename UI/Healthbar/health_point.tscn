@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqp63i7kroum8"]
 
-[ext_resource type="Texture2D" uid="uid://djowa0ovdqfcr" path="res://Placeholders/health_point.png" id="1_robop"]
+[ext_resource type="Texture2D" uid="uid://djowa0ovdqfcr" path="res://UI/Healthbar/health_point.png" id="1_robop"]
 [ext_resource type="Script" uid="uid://ccvfyx4wxa2sb" path="res://UI/Healthbar/health_point.gd" id="2_robop"]
 
 [sub_resource type="Animation" id="Animation_robop"]
