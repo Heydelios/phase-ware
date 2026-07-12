@@ -18,7 +18,7 @@ func _minigame_won() -> void:
 	Events.minigame_won.emit()
 	queue_free()
 
-static func get_game(from:Node):
+static func get_game(from:Node) -> Minigame:
 	var curr = from
 	while curr:
 		if curr is Minigame:
