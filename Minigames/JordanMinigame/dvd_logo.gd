@@ -11,11 +11,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += velocity * delta
-	
 	var r = get_rect()
-	var world_size = Vector2(512,480) #Minigame.get_game(self).size
-	
-	
+	var world_size = get_parent().size
 	var max_x = world_size.x - r.size.x
 	var max_y = world_size.y - r.size.y
 	
@@ -31,3 +28,7 @@ func _process(delta: float) -> void:
 	elif position.y > max_y:
 		position.y = max_y
 		velocity.y *= -1
+
+func _pressed() -> void:
+	Minigame.win_game(self)
+	queue_free()

@@ -2,11 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_mijwr"]
 [ext_resource type="Texture2D" uid="uid://cjbtpw4lbjn24" path="res://icon.svg" id="3_ujtnf"]
-[ext_resource type="Script" uid="uid://spqi7ivocbsg" path="res://Minigames/JordanMinigame/example_game/dvd_logo.gd" id="4_4bytl"]
+[ext_resource type="Script" uid="uid://spqi7ivocbsg" path="res://Minigames/JordanMinigame/dvd_logo.gd" id="4_4bytl"]
 
 [node name="Minigame" unique_id=599418719 instance=ExtResource("1_mijwr")]
+game_name = "CATCH"
+control_type = 2
 
-[node name="TextureButton" type="TextureButton" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=1825171361]
+[node name="tv" type="ColorRect" parent="." index="2" unique_id=2067471746]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -240.0
+offset_right = 256.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07089206, 0.08671256, 0.13471708, 1)
+
+[node name="DVDLogo" type="TextureButton" parent="tv" index="0" unique_id=1825171361]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
