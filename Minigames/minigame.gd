@@ -36,4 +36,4 @@ static func win_game(from:Node):
 	get_game(from)._minigame_won()
 
 static func lose_game(from:Node):
-	get_game(from)._minigmae_loss()
+	get_game(from)._minigame_loss()

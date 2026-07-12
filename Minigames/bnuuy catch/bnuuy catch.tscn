@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://6rawjhgrb1yl"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_dotgi"]
+[ext_resource type="Script" uid="uid://8cntajejfkyb" path="res://Minigames/bnuuy catch/bnuuy.gd" id="2_1h1g8"]
+[ext_resource type="Texture2D" uid="uid://c873s7t8wslt3" path="res://Minigames/bnuuy catch/bnuuy.png" id="2_7opit"]
+[ext_resource type="Script" uid="uid://dhp4gtlfmfwst" path="res://Minigames/bnuuy catch/bnuuy_catch.gd" id="2_ixox0"]
+[ext_resource type="Script" uid="uid://d3rhg044dev4v" path="res://Minigames/bnuuy catch/hand.gd" id="3_k7ad1"]
+[ext_resource type="Texture2D" uid="uid://dkbemoowo8epj" path="res://Minigames/bnuuy catch/hand.png" id="3_lekso"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k7ad1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ognl"]
+size = Vector2(51.25, 196.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h1g8"]
+size = Vector2(162, 231)
+
+[node name="Minigame" unique_id=599418719 instance=ExtResource("1_dotgi")]
+script = ExtResource("2_ixox0")
+game_name = "TRAP"
+control_type = 1
+
+[node name="Clock" parent="." index="1" unique_id=817307990]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 48.0
+grow_horizontal = 2
+stretch_mode = 4
+
+[node name="Floor" type="StaticBody2D" parent="." index="2" unique_id=1451932397]
+position = Vector2(647, 671)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" index="0" unique_id=1007084052]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_k7ad1")
+
+[node name="Hand" type="CharacterBody2D" parent="." index="3" unique_id=529348160]
+unique_name_in_owner = true
+position = Vector2(173, -142.43)
+script = ExtResource("3_k7ad1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand" index="0" unique_id=1882688535]
+texture = ExtResource("3_lekso")
+offset = Vector2(50.765, -65.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" index="1" unique_id=2042765262]
+shape = SubResource("RectangleShape2D_0ognl")
+
+[node name="Timer" type="Timer" parent="Hand" index="2" unique_id=205386741]
+one_shot = true
+
+[node name="Bnuuy" type="CharacterBody2D" parent="." index="4" unique_id=1974054380]
+position = Vector2(649, 666)
+script = ExtResource("2_1h1g8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bnuuy" index="0" unique_id=182573881]
+texture = ExtResource("2_7opit")
+offset = Vector2(20, -140)
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bnuuy" index="1" unique_id=1248501853]
+position = Vector2(0, -115.5)
+shape = SubResource("RectangleShape2D_1h1g8")
