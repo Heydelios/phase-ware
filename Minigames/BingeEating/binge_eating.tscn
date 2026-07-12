@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://clgh6nxo2ajb7"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_tjhjs"]
+[ext_resource type="Texture2D" uid="uid://djupmm8gkp66p" path="res://Minigames/BingeEating/background.png" id="2_iv0uh"]
+[ext_resource type="Texture2D" uid="uid://i1mxh6fofk13" path="res://Minigames/BingeEating/fullbowl.png" id="3_ua2dy"]
+[ext_resource type="Texture2D" uid="uid://bfmg138os6n7u" path="res://Minigames/BingeEating/emptybowl.png" id="4_ds8hj"]
+[ext_resource type="Texture2D" uid="uid://denr4io37je2y" path="res://Minigames/BingeEating/eber_spritesheet.png" id="4_h0g5h"]
+[ext_resource type="Script" uid="uid://cdwwtrm16sik1" path="res://Minigames/BingeEating/ember.gd" id="6_ds8hj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds8hj"]
+atlas = ExtResource("4_h0g5h")
+region = Rect2(0, 600, 350, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyory"]
+atlas = ExtResource("4_h0g5h")
+region = Rect2(350, 600, 350, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3hhj"]
+atlas = ExtResource("4_h0g5h")
+region = Rect2(700, 600, 350, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ao74"]
+atlas = ExtResource("4_h0g5h")
+region = Rect2(1050, 600, 350, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35qe8"]
+atlas = ExtResource("4_h0g5h")
+region = Rect2(0, 0, 350, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65j3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds8hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyory")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3hhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ao74")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35qe8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_4wawx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullBowl:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1093, 384)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FullBowl:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EmptyBowl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EmptyBowl:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xog0r"]
+resource_name = "bowl_eaten"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullBowl:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(345, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FullBowl:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EmptyBowl:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EmptyBowl:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.01, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(352, 163), Vector2(108, 73)]
+}
+
+[sub_resource type="Animation" id="Animation_mjgie"]
+resource_name = "bowl_slide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullBowl:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1093, 384), Vector2(352, 163)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mrwpq"]
+_data = {
+&"RESET": SubResource("Animation_4wawx"),
+&"bowl_eaten": SubResource("Animation_xog0r"),
+&"bowl_slide": SubResource("Animation_mjgie")
+}
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_tjhjs")]
+game_name = "EAT UP"
+control_type = 1
+
+[node name="BackgroundBar" type="TextureRect" parent="." index="1" unique_id=1858219532]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_iv0uh")
+
+[node name="FullBowl" type="TextureRect" parent="." index="3" unique_id=1792582397]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 384.0
+offset_right = 1271.0
+offset_bottom = 484.0
+texture = ExtResource("3_ua2dy")
+
+[node name="EmptyBowl" type="TextureRect" parent="." index="4" unique_id=1402600645]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 178.0
+offset_bottom = 100.0
+texture = ExtResource("4_ds8hj")
+
+[node name="Ember" type="AnimatedSprite2D" parent="." index="5" unique_id=381097750]
+position = Vector2(478, 378)
+sprite_frames = SubResource("SpriteFrames_65j3v")
+animation = &"eat"
+autoplay = "idle"
+script = ExtResource("6_ds8hj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1239992698]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_mrwpq")
+autoplay = &"bowl_slide"
