@@ -3,8 +3,40 @@
 [ext_resource type="Script" uid="uid://cljmgkkkgnla8" path="res://IntroCutscene/intro.gd" id="1_b226h"]
 [ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="2_duh1u"]
 
-[node name="Intro" type="Node2D" unique_id=1288807579]
+[node name="Intro" type="Control" unique_id=1933328798]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_b226h")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1750881320]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1024835973]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_duh1u")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=577460494]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -476.0
+offset_top = -70.0
+offset_right = -32.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "Press SPACE to skip the intro"

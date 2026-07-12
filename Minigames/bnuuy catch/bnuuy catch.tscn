@@ -18,7 +18,7 @@ size = Vector2(162, 231)
 [node name="Minigame" unique_id=599418719 instance=ExtResource("1_dotgi")]
 script = ExtResource("2_ixox0")
 game_name = "TRAP"
-control_type = 1
+control_type = 3
 
 [node name="Clock" parent="." index="1" unique_id=817307990]
 layout_mode = 1

@@ -9,10 +9,13 @@ var win_cutscene_duration = .5
 var loss_cutscene_duration = .5
 
 func _ready() -> void:
-	Events.time_over.connect(_minigame_loss)
+	Events.time_over.connect(_time_over)
+
+func _time_over() -> void:
+	time_over = true
+	_minigame_loss()
 
 func _minigame_loss() -> void:
-	time_over = true
 	#need delay to play loss anim
 	await get_tree().create_timer(loss_cutscene_duration).timeout
 	Events.minigame_lost.emit()

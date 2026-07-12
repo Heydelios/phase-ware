@@ -111,8 +111,12 @@ func speed_up(delta: float) -> void:
 	
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
-	var scene := load("res://Minigames/JordanMinigame/example_game.tscn")
-	next_minigame = scene.instantiate()
+	next_minigame = load(minigame_list.pick_random()).instantiate()
+	
+	#Choose first minigame for debug purposes
+	#var scene := load("res://Minigames/JordanMinigame/example_game.tscn")
+	#next_minigame = scene.instantiate()
+	
 	print("intro end")
 
 func _on_minigame_won() -> void:
