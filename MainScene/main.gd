@@ -1,7 +1,7 @@
 class_name Main
 extends Node2D
 
-enum main_state {INTRO, MINIGAME_START, IN_GAME, MINIGAME_END, GAME_OVER}
+enum main_state {INTRO, MINIGAME_START, IN_GAME, MINIGAME_END, SPEED_UP, BOSS_STAGE, GAME_OVER}
 enum control_type {WASD, MASH, MOUSE_POINT, POINT_AND_CLICK}
 var state := main_state.INTRO
 var intro_scene := preload("res://IntroCutscene/intro.tscn")
@@ -12,14 +12,20 @@ var minigame_prompt := preload("res://Minigames/popup_text.tscn")
 var main_screen_display := preload("res://UI/Television/minigame_start.tscn")
 
 var timer : float = 0
-var lives : int = 4
 var speed : float = 1
+var lives : int = 4
 var stage_number : int = 1
+var wins : int = 0
+var nb_of_wins_to_speedup : int = 2
+var nb_of_wins_to_boss : int = 11
+var should_speedup : bool = false
+var should_start_boss : bool = false
 
 @onready var anim_player := %AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Engine.time_scale = 2
 	Events.intro_end.connect(_on_intro_end)
 	Events.minigame_won.connect(_on_minigame_won)
 	Events.minigame_lost.connect(_on_minigame_lost)
@@ -36,6 +42,12 @@ func _process(delta: float) -> void:
 			
 		main_state.MINIGAME_END:
 			minigame_end(delta)
+			
+		main_state.SPEED_UP:
+			speed_up(delta)
+			
+		main_state.BOSS_STAGE:
+			boss_stage(delta)
 	pass
 
 
@@ -63,19 +75,34 @@ func minigame_start(delta: float) -> void:
 		%Anchor.add_child(next_minigame)
 		%Anchor.add_child(popup)
 		
-	print("gamestart " + str(timer))
+	#print("gamestart " + str(timer))
 	
 func minigame_end(delta: float) -> void:
-	if timer == 0:
-		anim_player.play("zoom_out")
 	var end_anim_duration : float = .5
 	timer += delta
 	if timer >= end_anim_duration:
-		next_minigame = load(minigame_list.pick_random()).instantiate()
 		timer = 0
 		state = main_state.MINIGAME_START
-	print("gameend " + str(timer))
+	#print("gameend " + str(timer))
 	
+func boss_stage(delta: float) -> void:
+	print("boss anim " + str(timer))
+	var boss_anim_duration : float = 2
+	timer += delta
+	if timer >= boss_anim_duration:
+		timer = 0
+		state = main_state.MINIGAME_START
+		
+func speed_up(delta: float) -> void:
+	var speed_up_duration : float = 2
+	timer += delta
+	#print("speedup anim " + str(timer))
+	if timer >= speed_up_duration:
+		speed += 0.5
+		Engine.time_scale = speed
+		timer = 0
+		state = main_state.MINIGAME_START
+	#print("gameend " + str(timer))
 	
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
@@ -84,13 +111,19 @@ func _on_intro_end() -> void:
 	print("intro end")
 
 func _on_minigame_won() -> void:
+	wins += 1
+	if wins % nb_of_wins_to_speedup == 0:
+		should_speedup = true
+		print("speed up")
+		
+	if wins % nb_of_wins_to_boss == 0:
+		should_start_boss = true
+		print("boss")
 	#Play minigame won animation
 	var win_anim_duration : float = .5
 	print("minigame won")
 	await get_tree().create_timer(win_anim_duration).timeout
-	
 	_on_minigame_end()
-	pass
 	
 func _on_minigame_lost() -> void:
 	lives -= 1
@@ -105,9 +138,23 @@ func _on_minigame_lost() -> void:
 	_on_minigame_end()
 	
 func _on_minigame_end() -> void:
-	state = main_state.MINIGAME_END
 	%HealthBar.anim_player.play("fade_in")
+	anim_player.play("zoom_out")
 	stage_number += 1
+	next_minigame = load(minigame_list.pick_random()).instantiate()
+	if should_speedup:
+		state = main_state.SPEED_UP
+		should_speedup = false
+		#Play Faster animation
+		return
+	if should_start_boss:
+		state = main_state.BOSS_STAGE
+		should_start_boss = false
+		speed = 1
+		Engine.time_scale = speed
+		#Play Boss animation
+		return
+	state = main_state.MINIGAME_END
 	
 func _on_game_over() -> void:
 	state = main_state.GAME_OVER
