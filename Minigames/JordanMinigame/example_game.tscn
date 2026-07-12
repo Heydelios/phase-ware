@@ -1,23 +1,12 @@
 [gd_scene format=3 uid="uid://cm3e7hojuplfm"]
 
-[ext_resource type="Script" uid="uid://b5nag41gmlvps" path="res://Minigames/JordanMinigame/example_game.gd" id="1_8dx0r"]
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_mijwr"]
 [ext_resource type="Texture2D" uid="uid://cjbtpw4lbjn24" path="res://icon.svg" id="3_ujtnf"]
 [ext_resource type="Script" uid="uid://spqi7ivocbsg" path="res://Minigames/JordanMinigame/example_game/dvd_logo.gd" id="4_4bytl"]
-[ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://UI/Clock/clock.tscn" id="4_yucji"]
 
-[node name="Example Game" type="Node2D" unique_id=1542663600]
-script = ExtResource("1_8dx0r")
-game_name = "CATCH"
-control_type = 3
+[node name="Minigame" unique_id=599418719 instance=ExtResource("1_mijwr")]
 
-[node name="Background" type="ColorRect" parent="." unique_id=1331691607]
-offset_left = 381.0
-offset_top = 103.0
-offset_right = 893.0
-offset_bottom = 583.0
-color = Color(0.15805519, 0.1602988, 0.26668203, 1)
-
-[node name="TextureButton" type="TextureButton" parent="Background" unique_id=968552287]
+[node name="TextureButton" type="TextureButton" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=1825171361]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,7 +21,3 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_ujtnf")
 script = ExtResource("4_4bytl")
-
-[node name="Clock" parent="." unique_id=817307990 instance=ExtResource("4_yucji")]
-
-[connection signal="pressed" from="Background/TextureButton" to="." method="_on_texture_button_pressed"]

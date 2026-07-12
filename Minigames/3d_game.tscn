@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bveqx4slbkxld"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_m1mrv"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_m1mrv")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." index="1" unique_id=1068253991]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" index="0" unique_id=365878335]
+handle_input_locally = false
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport" index="0" unique_id=1639515101]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D" index="0" unique_id=719076857]

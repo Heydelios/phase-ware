@@ -1,5 +1,5 @@
 class_name Minigame
-extends Node2D
+extends Node
 
 @export var game_name : String
 @export var control_type : Main.control_type
