@@ -17,5 +17,7 @@ mono_crash.*.json
 
 # Krita stuff
 *~
-*.kra-autosave.kra
+*autosave.kra
 
+export/*
+!export/.gdignore
