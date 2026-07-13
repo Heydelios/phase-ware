@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://beynhmhaokghn" path="res://Minigames/Jelly67/jelly background.png" id="2_i56cd"]
 [ext_resource type="Texture2D" uid="uid://bn41f5hi88l2v" path="res://Minigames/Jelly67/6_7_spritesheet.png" id="3_k6rsv"]
 [ext_resource type="Script" uid="uid://cqjthkvny53pa" path="res://Minigames/Jelly67/jelly_67.gd" id="4_hhe3k"]
+[ext_resource type="Texture2D" uid="uid://bdo71nbyk3wps" path="res://Minigames/Jelly67/facepalm_spritesheet.png" id="4_mdixc"]
+[ext_resource type="Texture2D" uid="uid://qcyfdrbglogp" path="res://Minigames/Jelly67/win_spritesheet.png" id="5_eu77i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7gyp"]
 atlas = ExtResource("3_k6rsv")
@@ -27,6 +29,50 @@ region = Rect2(1280, 720, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7n5f"]
 atlas = ExtResource("3_k6rsv")
+region = Rect2(2560, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0beu5"]
+atlas = ExtResource("4_mdixc")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yuie"]
+atlas = ExtResource("4_mdixc")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsson"]
+atlas = ExtResource("4_mdixc")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x57r8"]
+atlas = ExtResource("4_mdixc")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gw2p"]
+atlas = ExtResource("4_mdixc")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rcgp"]
+atlas = ExtResource("5_eu77i")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fimqv"]
+atlas = ExtResource("5_eu77i")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmurc"]
+atlas = ExtResource("5_eu77i")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6ho5"]
+atlas = ExtResource("5_eu77i")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm2wo"]
+atlas = ExtResource("5_eu77i")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd1yw"]
+atlas = ExtResource("5_eu77i")
 region = Rect2(2560, 720, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ytyw5"]
@@ -53,6 +99,49 @@ animations = [{
 "loop": false,
 "name": &"6",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0beu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yuie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsson")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x57r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gw2p")
+}],
+"loop": false,
+"name": &"loss_anim",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rcgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fimqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmurc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6ho5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm2wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd1yw")
+}],
+"loop": false,
+"name": &"win_anim",
+"speed": 24.0
 }]
 
 [node name="Minigame" unique_id=1929227684 instance=ExtResource("1_6yi6w")]
@@ -76,6 +165,5 @@ modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_ytyw5")
 animation = &"6"
-frame = 5
-frame_progress = 1.0
+autoplay = "6"
 script = ExtResource("4_hhe3k")

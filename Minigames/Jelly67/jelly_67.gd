@@ -11,6 +11,7 @@ var going_up := false
 var swap_dir_counter : int = 0
 var win_target : int = 9
 
+
 func get_cursor_index() -> int :
 	var cmp : int = 0
 	for i in range(frames):
@@ -20,6 +21,8 @@ func get_cursor_index() -> int :
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Events.time_over.connect(on_loss)
+	
 	border_width = (window_height - play_area) / 2
 	for i in range(frames):
 		checkpoints.append(border_width + i*play_area/frames)
@@ -29,10 +32,16 @@ func _ready() -> void:
 	if start_frame > frames/2:
 		going_up = true
 
+func on_loss() -> void:
+	%Jelly67.play("loss_anim")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Minigame.get_game(self).game_ended:
+		return
 	six_seven()
 	if swap_dir_counter == win_target:
+		%Jelly67.play("win_anim")
 		Sfx.play_sfx("six_seven")
 		Minigame.win_game(self)
 		swap_dir_counter += 1

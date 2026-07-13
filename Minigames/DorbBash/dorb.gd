@@ -14,6 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Minigame.get_game(self).game_ended:
+		return
+		
 	var speed_factor : float = max(0.2, cos(rotation_degrees*coef))
 	rotation_degrees += rotation_dir * rotation_speed * speed_factor
 	if abs(rotation_degrees) > 45:

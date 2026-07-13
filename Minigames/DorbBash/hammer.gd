@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+		
 	difference = mouse_position - get_global_mouse_position()
 	global_position -= difference
 	mouse_position = get_global_mouse_position()
@@ -28,7 +29,10 @@ func _process(delta: float) -> void:
 		if timer > cooldown:
 			timer = 0
 			in_cooldown = false
-
+			
+	if Minigame.get_game(self).game_ended:
+		return
+			
 	if Input.is_action_pressed("click") and not in_cooldown:
 			in_cooldown = true
 			print("click")

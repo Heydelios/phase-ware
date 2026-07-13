@@ -9,6 +9,7 @@ extends Node
 @export var loss_cutscene_duration = .5
 
 var time_over : bool = false
+var game_ended : bool = false
 
 
 func _ready() -> void:
@@ -42,6 +43,7 @@ func _time_over() -> void:
 		_minigame_loss()
 
 func _minigame_loss() -> void:
+	game_ended = true
 	Sfx.play_sfx("booing")
 	#need delay to play loss anim
 	await get_tree().create_timer(loss_cutscene_duration).timeout
@@ -49,6 +51,7 @@ func _minigame_loss() -> void:
 	queue_free()
 
 func _minigame_won() -> void:
+	game_ended = true
 	Sfx.play_sfx("cheering")
 	#need delay to play win anim
 	await get_tree().create_timer(win_cutscene_duration).timeout
