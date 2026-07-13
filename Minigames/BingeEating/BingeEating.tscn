@@ -7,40 +7,40 @@
 [ext_resource type="Texture2D" uid="uid://denr4io37je2y" path="res://Minigames/BingeEating/eber_spritesheet.png" id="4_h0g5h"]
 [ext_resource type="Script" uid="uid://cdwwtrm16sik1" path="res://Minigames/BingeEating/ember.gd" id="6_ds8hj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ds8hj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmxk5"]
 atlas = ExtResource("4_h0g5h")
-region = Rect2(0, 600, 350, 600)
+region = Rect2(0, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyory"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eldw"]
 atlas = ExtResource("4_h0g5h")
-region = Rect2(350, 600, 350, 600)
+region = Rect2(1280, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3hhj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwkp2"]
 atlas = ExtResource("4_h0g5h")
-region = Rect2(700, 600, 350, 600)
+region = Rect2(2560, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ao74"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fnhn"]
 atlas = ExtResource("4_h0g5h")
-region = Rect2(1050, 600, 350, 600)
+region = Rect2(0, 720, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35qe8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuwwq"]
 atlas = ExtResource("4_h0g5h")
-region = Rect2(0, 0, 350, 600)
+region = Rect2(2560, 720, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65j3v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ds8hj")
+"texture": SubResource("AtlasTexture_nmxk5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyory")
+"texture": SubResource("AtlasTexture_1eldw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a3hhj")
+"texture": SubResource("AtlasTexture_bwkp2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ao74")
+"texture": SubResource("AtlasTexture_2fnhn")
 }],
 "loop": false,
 "name": &"eat",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35qe8")
+"texture": SubResource("AtlasTexture_yuwwq")
 }],
 "loop": true,
 "name": &"idle",
@@ -207,10 +207,12 @@ offset_bottom = 100.0
 texture = ExtResource("4_ds8hj")
 
 [node name="Ember" type="AnimatedSprite2D" parent="." index="5" unique_id=381097750]
-position = Vector2(478, 378)
+position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_65j3v")
 animation = &"eat"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 script = ExtResource("6_ds8hj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1239992698]

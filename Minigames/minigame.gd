@@ -5,11 +5,10 @@ extends Node
 @export var control_type : Main.control_type ## Tells the player what kind of input the game expects
 @export var should_win_on_timeover : bool = false ## If false, the game is lost when the timer runs out. If true, the game is won when the timer runs out
 
-@export var win_cutscene_duration = .5
-@export var loss_cutscene_duration = .5
-
+var minigame_end_duration : float = 0.7
 var time_over : bool = false
 var game_ended : bool = false
+var game_won : bool = false
 
 
 func _ready() -> void:
@@ -37,26 +36,29 @@ func screenshake(amplitude : float = 10.0, duration : float = 0.3) -> void:
 
 func _time_over() -> void:
 	time_over = true
-	if should_win_on_timeover:
-		_minigame_won()
+	if !game_ended:
+		if should_win_on_timeover:
+			_minigame_won()
+		else:
+			_minigame_loss()
+		
+	await get_tree().create_timer(minigame_end_duration).timeout
+	if game_won:
+		Events.minigame_won.emit()
 	else:
-		_minigame_loss()
+		Events.minigame_lost.emit()
+		
+	queue_free()
 
 func _minigame_loss() -> void:
 	game_ended = true
 	Sfx.play_sfx("booing")
-	#need delay to play loss anim
-	await get_tree().create_timer(loss_cutscene_duration).timeout
-	Events.minigame_lost.emit()
-	queue_free()
+	game_won = false
 
 func _minigame_won() -> void:
 	game_ended = true
 	Sfx.play_sfx("cheering")
-	#need delay to play win anim
-	await get_tree().create_timer(win_cutscene_duration).timeout
-	Events.minigame_won.emit()
-	queue_free()
+	game_won = true
 
 static func get_game(from:Node) -> Minigame:
 	var curr = from

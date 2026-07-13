@@ -33,6 +33,8 @@ func _ready() -> void:
 		going_up = true
 
 func on_loss() -> void:
+	if Minigame.get_game(self).game_ended:
+		return
 	%Jelly67.play("loss_anim")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

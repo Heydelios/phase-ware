@@ -23,5 +23,7 @@ func _process(delta: float) -> void:
 		rotation_dir *= -1
 
 func loss_anim() -> void:
+	if Minigame.get_game(self).game_ended:
+		return
 	%AnimationPlayer.play("loss")
 	
