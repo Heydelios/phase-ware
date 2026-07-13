@@ -25,6 +25,7 @@ var should_allow_repeats = true
 
 var minigame_list: Array[PackedScene]
 var next_minigame:Minigame
+var minigame_index = 0
 
 func build_minigame_list():
 	var game_dir = "res://Minigames/"
@@ -39,6 +40,7 @@ func build_minigame_list():
 func _ready() -> void:
 	print("building minigame list:")
 	build_minigame_list()
+	minigame_list.shuffle()
 
 	Events.intro_end.connect(_on_intro_end)
 	Events.minigame_won.connect(_on_minigame_won)
@@ -110,9 +112,17 @@ func speed_up(delta: float) -> void:
 		timer = 0
 		state = main_state.MINIGAME_START
 
+func load_next_minigame() -> void:
+	minigame_index += 1
+	if minigame_index >= minigame_list.size():
+		minigame_list.shuffle()
+		minigame_index = 0
+	next_minigame = minigame_list[minigame_index].instantiate()
+
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
-	next_minigame = minigame_list.pick_random().instantiate()
+	load_next_minigame()
+
 	print("intro end")
 
 func _on_minigame_won() -> void:
@@ -146,7 +156,7 @@ func _on_minigame_end() -> void:
 	%HealthBar.anim_player.play("fade_in")
 	anim_player.play("zoom_out")
 	stage_number += 1
-	next_minigame = minigame_list.pick_random().instantiate()
+	load_next_minigame()
 	if should_speedup:
 		state = main_state.SPEED_UP
 		should_speedup = false
