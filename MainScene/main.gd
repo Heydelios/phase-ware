@@ -34,6 +34,7 @@ func build_minigame_list():
 				if f.ends_with(".tscn") and f.get_basename() == d.get_base_dir():
 					minigame_list.append(load(game_dir + d + f))
 					print(f)
+						# this code is not very wheelchair accessible
 
 func _ready() -> void:
 	print("building minigame list:")

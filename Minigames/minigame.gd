@@ -1,9 +1,9 @@
 class_name Minigame
 extends Node
 
-@export var game_name : String
-@export var control_type : Main.control_type
-@export var should_win_on_timeover : bool = false
+@export var game_name : String ## Displayed before the game starts in big text
+@export var control_type : Main.control_type ## Tells the player what kind of input the game expects
+@export var should_win_on_timeover : bool = false ## If false, the game is lost when the timer runs out. If true, the game is won when the timer runs out
 
 var time_over : bool = false
 var win_cutscene_duration = .5
@@ -40,12 +40,14 @@ func _time_over() -> void:
 		_minigame_loss()
 
 func _minigame_loss() -> void:
+	Sfx.play_sfx("booing")
 	#need delay to play loss anim
 	await get_tree().create_timer(loss_cutscene_duration).timeout
 	Events.minigame_lost.emit()
 	queue_free()
 
 func _minigame_won() -> void:
+	Sfx.play_sfx("cheering")
 	#need delay to play win anim
 	await get_tree().create_timer(win_cutscene_duration).timeout
 	Events.minigame_won.emit()
