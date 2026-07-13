@@ -25,6 +25,11 @@ If you click on the root node of your minigame you'll see the minigame settings 
 
 Hover over them to see a description of each setting. These settings may change as we update the game.
 
+## Music
+We haven't really figured this part out yet :P
+
+You can add your own music to your game if you like.
+
 # API Reference
 
 Feel free to peruse the code, the other minigames, or the example minigames. Here is a quick reference:
@@ -56,4 +61,3 @@ If you want to add new SFX you can do one of the following:
 2. Put your audio file in `audio/raw` folder and run `bitcrush.sh` (you'll need ffmpeg and a shell script interpreter.
 
 Of course, you always have the option to option to play audio yourself from an AudioStreamPlayer within your own game.
-
