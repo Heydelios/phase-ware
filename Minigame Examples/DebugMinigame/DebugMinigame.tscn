@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqe13q8s6ppq5"]
 
-[ext_resource type="Script" uid="uid://b1liviqdqxoch" path="res://Minigames/DebugMinigame/debug_minigame.gd" id="1_j12sf"]
+[ext_resource type="Script" uid="uid://b1liviqdqxoch" path="res://Minigame Examples/DebugMinigame/debug_minigame.gd" id="1_j12sf"]
 [ext_resource type="Texture2D" uid="uid://u1hhpmcbpxp6" path="res://Placeholders/selection_dizzy.png" id="2_1mfso"]
 [ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://UI/Clock/clock.tscn" id="3_phipw"]
 

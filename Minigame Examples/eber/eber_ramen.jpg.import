@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3kxnw33o7141"
-path.s3tc="res://.godot/imported/eber_ramen.jpg-301f9df01aa48e71914d7223b44b884c.s3tc.ctex"
+path.s3tc="res://.godot/imported/eber_ramen.jpg-35ba7d1c93aaba8dbfb29621f0c570bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Minigames/eber/eber_ramen.jpg"
-dest_files=["res://.godot/imported/eber_ramen.jpg-301f9df01aa48e71914d7223b44b884c.s3tc.ctex"]
+source_file="res://Minigame Examples/eber/eber_ramen.jpg"
+dest_files=["res://.godot/imported/eber_ramen.jpg-35ba7d1c93aaba8dbfb29621f0c570bc.s3tc.ctex"]
 
 [params]
 

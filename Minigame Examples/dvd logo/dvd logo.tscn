@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_mijwr"]
 [ext_resource type="Texture2D" uid="uid://cjbtpw4lbjn24" path="res://icon.svg" id="3_ujtnf"]
-[ext_resource type="Script" uid="uid://spqi7ivocbsg" path="res://Minigames/JordanMinigame/dvd_logo.gd" id="4_4bytl"]
+[ext_resource type="Script" uid="uid://spqi7ivocbsg" path="res://Minigame Examples/dvd logo/dvd_logo.gd" id="3_xtkqp"]
 
 [node name="Minigame" unique_id=599418719 instance=ExtResource("1_mijwr")]
 game_name = "CATCH"
@@ -37,4 +37,4 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_ujtnf")
-script = ExtResource("4_4bytl")
+script = ExtResource("3_xtkqp")

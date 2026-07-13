@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dscjd5k2bcsnw"
-path="res://.godot/imported/eber.glb-10aa56257169a48a44202968d509cfce.scn"
+path="res://.godot/imported/eber.glb-9d751e5b6d0556278b8384c590926d2e.scn"
 
 [deps]
 
-source_file="res://Minigames/eber/eber.glb"
-dest_files=["res://.godot/imported/eber.glb-10aa56257169a48a44202968d509cfce.scn"]
+source_file="res://Minigame Examples/eber/eber.glb"
+dest_files=["res://.godot/imported/eber.glb-9d751e5b6d0556278b8384c590926d2e.scn"]
 
 [params]
 
