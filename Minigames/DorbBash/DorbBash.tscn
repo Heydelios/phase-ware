@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://kyt8n3tfy17q"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_boriw"]
+[ext_resource type="Texture2D" uid="uid://qutyg7tobk4m" path="res://Minigames/DorbBash/bg.png" id="2_jgg3i"]
+[ext_resource type="Texture2D" uid="uid://b6238oq6l8y1r" path="res://Minigames/DorbBash/hammer_shet.png" id="3_a07gm"]
+[ext_resource type="Texture2D" uid="uid://dmmmb8buo1je7" path="res://Minigames/DorbBash/dorb.png" id="3_iwq4c"]
+[ext_resource type="Script" uid="uid://5e7q7doyla1n" path="res://Minigames/DorbBash/dorb.gd" id="4_7pysu"]
+[ext_resource type="Script" uid="uid://dvulg66fqgych" path="res://Minigames/DorbBash/hammer.gd" id="4_iwq4c"]
+[ext_resource type="Texture2D" uid="uid://brr7y3ift53dg" path="res://Minigames/DorbBash/dorbbroken.png" id="5_7pysu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pysu"]
+atlas = ExtResource("3_a07gm")
+region = Rect2(0, 0, 650, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6vqy"]
+atlas = ExtResource("3_a07gm")
+region = Rect2(650, 0, 650, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf5os"]
+atlas = ExtResource("3_a07gm")
+region = Rect2(0, 0, 650, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eirr"]
+atlas = ExtResource("3_a07gm")
+region = Rect2(0, 0, 650, 491)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6efo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pysu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf5os")
+}],
+"loop": false,
+"name": &"bash",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eirr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_d6vqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dorb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(444, -54.385006)]
+}
+
+[sub_resource type="Animation" id="Animation_7pysu"]
+resource_name = "loss"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dorb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(4.141059, 0.1830108),
+"update": 0,
+"values": [Vector2(444, -54.385006), Vector2(444, 730)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d6vqy"]
+_data = {
+&"RESET": SubResource("Animation_d6vqy"),
+&"loss": SubResource("Animation_7pysu")
+}
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_boriw")]
+game_name = "BASH"
+control_type = 3
+
+[node name="BG" type="TextureRect" parent="." index="1" unique_id=1647753239]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_jgg3i")
+expand_mode = 1
+
+[node name="Dorb" type="TextureRect" parent="." index="2" unique_id=1645591801]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_top = -54.385006
+offset_right = 196.0
+offset_bottom = 901.6157
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(188.58, 0)
+texture = ExtResource("3_iwq4c")
+script = ExtResource("4_7pysu")
+
+[node name="Hitbox" type="ColorRect" parent="Dorb" index="0" unique_id=1033844923]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -405.35834
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.62418026, 4.0911138e-07, 0.33964518, 0.3372549)
+
+[node name="BrokenDorb" type="TextureRect" parent="Dorb" index="1" unique_id=1172573531]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -35.71997
+offset_top = 108.975006
+offset_right = 427.28003
+offset_bottom = 966.975
+texture = ExtResource("5_7pysu")
+
+[node name="Hammer" type="AnimatedSprite2D" parent="." index="4" unique_id=895517281]
+unique_name_in_owner = true
+position = Vector2(597, 572)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_a6efo")
+autoplay = "default"
+script = ExtResource("4_iwq4c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1546134771]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_d6vqy")

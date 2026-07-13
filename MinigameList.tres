@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_gadvr")
-path_list = Array[String](["res://Minigames/DebugMinigame/debug_minigame.tscn", "res://Minigames/JordanMinigame/example_game.tscn", "res://Minigames/BingeEating/binge_eating.tscn", "res://Minigames/bnuuy catch/bnuuy catch.tscn"])
+path_list = Array[String](["res://Minigames/DebugMinigame/debug_minigame.tscn", "res://Minigames/JordanMinigame/example_game.tscn", "res://Minigames/BingeEating/binge_eating.tscn", "res://Minigames/bnuuy catch/bnuuy catch.tscn", "res://Minigames/DorbBash/DorbBash.tscn"])

@@ -5,9 +5,11 @@ extends Node
 @export var control_type : Main.control_type
 @export var should_win_on_timeover : bool = false
 
+@export var win_cutscene_duration = .5
+@export var loss_cutscene_duration = .5
+
 var time_over : bool = false
-var win_cutscene_duration = .5
-var loss_cutscene_duration = .5
+
 
 func _ready() -> void:
 	Events.time_over.connect(_time_over)
