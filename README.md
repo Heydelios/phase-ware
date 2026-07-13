@@ -1,7 +1,7 @@
 # Creating a new Minigame
 Minigames are loaded automatically from the `Minigames` folder:
 
-A function in `main.gd` called `build_minigame_list` will look for an `.tscn` with a name that matches its folder, such is these:
+A function in `main.gd` called `build_minigame_list` will look for a `.tscn` with a name that matches its folder, such is these:
 ```
 Minigames/
 ├─BingeEating/
@@ -11,8 +11,10 @@ Minigames/
 ```
 
 ## Set-up steps
+- Use Godot **4.6.x**
 - Create a folder in `Minigames` for your game.
-- Pick a template from `Minigames` or `Example Minigames`, you'll usually want to use `2d_game.tscn`. Right click and create a "New Inherited Scene".
+- Pick a template; either `2d_game.tscn` or `3d_game.tscn` depending on the type of game you're making.
+- Right click the template, and create a "New Inherited Scene".
 - Save the new scene, remember to give it the same name is the folder it's in.
 - If you've done it right, it should be printed to the console when you launch the game:
 
@@ -29,6 +31,14 @@ Hover over them to see a description of each setting. These settings may change 
 We haven't really figured this part out yet :P
 
 You can add your own music to your game if you like.
+
+# Submitting your Game
+Once you're done with your game, you can send us a zip of your minigame folder and we will add it.
+
+If you prefer, you can open a Pull Request in Github. This is a better option if you change something outside your minigame folder, or if you'd like to keep working on it after the initial submission.
+
+You could also send us a patch. You can generate a patch with the command `git diff origin/main --patch --binary > my_game.patch`.
+This is especially useful if you want to roleplay as Linus Torvalds.
 
 # API Reference
 
