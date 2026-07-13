@@ -4,17 +4,13 @@ class_name SFX
 var sfx = {}
 
 func _add_audio_directory(dir:String):
-	for f in ResourceLoader.list_directory(dir):
-		var res_name = "%s/%s" % [dir, f]
-		if f.ends_with(".wav"):
-			var res = ResourceLoader.load(res_name)
-			if res:
-				var key = f.get_basename()
-				assert(key)
-				assert(not sfx.has(key))
-				sfx[key] = res
-		else:
-			_add_audio_directory(res_name)
+	for wav in ResTools.list_resources(dir, ".wav"):
+		var key = wav.resource_name
+		assert(key)
+		assert(not sfx.has(key))
+		sfx[key] = wav
+	for d in ResTools.list_subdirectories(dir):
+		_add_audio_directory(d)
 
 func get_playback() -> AudioStreamPlaybackPolyphonic:
 	if not has_stream_playback():
@@ -32,8 +28,6 @@ func play_sfx(effect_name:String):
 	pb.play_stream(sfx[effect_name])
 
 func _ready():
-	print("building sfx table:")
-	_add_audio_directory("res://audio/bitcrushed")
-	print(sfx)
+	_add_audio_directory("audio/bitcrushed")
 	stream = AudioStreamPolyphonic.new()
 	stream.polyphony = 8
