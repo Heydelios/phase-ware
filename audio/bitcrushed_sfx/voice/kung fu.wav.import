@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://biibsq6etdsge"
+path="res://.godot/imported/kung fu.wav-ae391d4180528abc6a18bb5ce20e991d.sample"
+
+[deps]
+
+source_file="res://audio/bitcrushed_sfx/voice/kung fu.wav"
+dest_files=["res://.godot/imported/kung fu.wav-ae391d4180528abc6a18bb5ce20e991d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

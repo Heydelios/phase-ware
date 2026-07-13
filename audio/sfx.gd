@@ -6,7 +6,7 @@ var sfx = {}
 func _add_audio_directory(dir:String):
 	for f in ResourceLoader.list_directory(dir):
 		var res_name = "%s/%s" % [dir, f]
-		if f.ends_with(".wav") or f.ends_with(".mp3"):
+		if f.ends_with(".wav") or f.ends_with(".mp3") or f.ends_with("*.ogg"):
 			var res = ResourceLoader.load(res_name)
 			if res:
 				var key = f.get_basename()
@@ -33,8 +33,9 @@ func play_sfx(effect_name:String):
 
 func _ready():
 	print("building sfx table:")
-	_add_audio_directory("res://audio/bitcrushed")
+	_add_audio_directory("res://audio/bitcrushed_sfx")
 	_add_audio_directory("res://audio/eating")
+	_add_audio_directory("res://audio/plain_sfx")
 	print(sfx)
 	stream = AudioStreamPolyphonic.new()
 	stream.polyphony = 8

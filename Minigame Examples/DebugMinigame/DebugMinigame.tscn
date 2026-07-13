@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqe13q8s6ppq5"]
+
+[ext_resource type="Script" uid="uid://b1liviqdqxoch" path="res://Minigame Examples/DebugMinigame/debug_minigame.gd" id="1_j12sf"]
+[ext_resource type="Texture2D" uid="uid://u1hhpmcbpxp6" path="res://Placeholders/selection_dizzy.png" id="2_1mfso"]
+[ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://UI/Clock/clock.tscn" id="3_phipw"]
+
+[node name="DebugMinigame" type="Node2D" unique_id=1691593152]
+script = ExtResource("1_j12sf")
+game_name = "PRESS SPACE"
+control_type = 1
+metadata/_custom_type_script = "uid://bj8mao1xq2nsv"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1820476784]
+position = Vector2(636, 657)
+texture = ExtResource("2_1mfso")
+
+[node name="Clock" parent="." unique_id=817307990 instance=ExtResource("3_phipw")]

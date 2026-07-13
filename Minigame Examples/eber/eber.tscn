@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://djtwk1f4412sv"]
+
+[ext_resource type="PackedScene" uid="uid://bveqx4slbkxld" path="res://Minigames/3d_game.tscn" id="1_rnmsj"]
+[ext_resource type="PackedScene" uid="uid://dscjd5k2bcsnw" path="res://Minigame Examples/eber/eber.glb" id="2_jvhjh"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_rnmsj")]
+
+[node name="eber" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="1" unique_id=1072850975 instance=ExtResource("2_jvhjh")]

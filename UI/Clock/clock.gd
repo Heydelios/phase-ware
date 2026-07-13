@@ -11,7 +11,6 @@ func tick(amount:int=1):
 	ticks += 1
 	texture = (texture as HandyAtlas)
 	texture.add_xy(1,0)
-
 	match ticks:
 		9:
 			Sfx.play_sfx("tick")
@@ -32,4 +31,4 @@ func _ready() -> void:
 	texture = (texture as HandyAtlas) # tells the editor what type it is and also throws an error if type mismatch
 	texture.region.size = texture.atlas.get_size() / Vector2(14,1)
 	size = texture.region.size * 4
-	print(size)
+	texture.set_xy(0,0)

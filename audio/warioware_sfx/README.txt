@@ -1,0 +1,1 @@
+A bunch of recordings from Warioware DIY for the DS. These are not imported by Godot, instead they're bitcrushed and put into the `bitcrushed_sfx` folder by `bitcrush.sh`. This doesn't change the audio quality because they were already bitcrushed in-game.
