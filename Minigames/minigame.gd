@@ -14,6 +14,26 @@ var time_over : bool = false
 func _ready() -> void:
 	Events.time_over.connect(_time_over)
 
+func set_position(pos:Vector2):
+	# OOP is so cool
+	var base = self as Node
+	if base is Control:
+		base.position = pos
+	elif base is Node2D:
+		base.position = pos
+
+func screenshake(amplitude : float = 10.0, duration : float = 0.3) -> void:
+	var elapsed := 0.0
+	while elapsed < duration:
+		var decay := 1.0 - elapsed / duration
+		var offset := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * amplitude * decay
+		set_position(offset)
+		$Background.position = -offset
+		elapsed += get_process_delta_time()
+		await get_tree().process_frame
+	set_position(Vector2.ZERO)
+	$Background.position = Vector2.ZERO
+
 func _time_over() -> void:
 	time_over = true
 	if should_win_on_timeover:

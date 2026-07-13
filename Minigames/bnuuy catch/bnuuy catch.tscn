@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dhp4gtlfmfwst" path="res://Minigames/bnuuy catch/bnuuy_catch.gd" id="2_ixox0"]
 [ext_resource type="Script" uid="uid://d3rhg044dev4v" path="res://Minigames/bnuuy catch/hand.gd" id="3_k7ad1"]
 [ext_resource type="Texture2D" uid="uid://dkbemoowo8epj" path="res://Minigames/bnuuy catch/hand.png" id="3_lekso"]
+[ext_resource type="Texture2D" uid="uid://dvhsmm2t1wwv0" path="res://Minigames/bnuuy catch/hand_front.png" id="5_k7ad1"]
+[ext_resource type="Script" uid="uid://lvadwqqppo0k" path="res://Minigames/bnuuy catch/copy_hlfip.gd" id="6_0ognl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k7ad1"]
 
@@ -13,7 +15,7 @@
 size = Vector2(51.25, 196.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h1g8"]
-size = Vector2(162, 231)
+size = Vector2(105, 231)
 
 [node name="Minigame" unique_id=599418719 instance=ExtResource("1_dotgi")]
 script = ExtResource("2_ixox0")
@@ -41,20 +43,30 @@ shape = SubResource("WorldBoundaryShape2D_k7ad1")
 
 [node name="Hand" type="CharacterBody2D" parent="." index="3" unique_id=529348160]
 unique_name_in_owner = true
-position = Vector2(173, -142.43)
+position = Vector2(173, -144)
 script = ExtResource("3_k7ad1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand" index="0" unique_id=1882688535]
 texture = ExtResource("3_lekso")
-offset = Vector2(50.765, -65.625)
+region_enabled = true
+region_rect = Rect2(-100, 1, 365, 431)
+
+[node name="Front" type="Sprite2D" parent="Hand/Sprite2D" index="0" unique_id=133892843]
+z_index = 1
+texture = ExtResource("5_k7ad1")
+region_enabled = true
+region_rect = Rect2(-96, 88, 361, 260)
+script = ExtResource("6_0ognl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" index="1" unique_id=2042765262]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_0ognl")
 
 [node name="Timer" type="Timer" parent="Hand" index="2" unique_id=205386741]
 one_shot = true
 
 [node name="Bnuuy" type="CharacterBody2D" parent="." index="4" unique_id=1974054380]
+unique_name_in_owner = true
 position = Vector2(649, 666)
 script = ExtResource("2_1h1g8")
 
@@ -64,5 +76,5 @@ offset = Vector2(20, -140)
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bnuuy" index="1" unique_id=1248501853]
-position = Vector2(0, -115.5)
+position = Vector2(0.5, -115.5)
 shape = SubResource("RectangleShape2D_1h1g8")

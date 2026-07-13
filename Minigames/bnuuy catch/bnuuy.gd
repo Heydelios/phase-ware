@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed:float = 700.0
-const accel:float = 1800
+const accel:float = 1000
 
 var alive = true
 
@@ -33,7 +33,6 @@ func pick_direction():
 
 var direction:float
 func _physics_process(delta: float) -> void:
-	direction += Input.get_axis("ui_left", "ui_right")
 	velocity.x = move_toward(velocity.x, direction * speed, accel*delta)
 	move_and_slide()
 	if position.x < 0 or position.x > 1280:

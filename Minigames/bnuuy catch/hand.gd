@@ -7,9 +7,10 @@ func slam(x:float):
 	if $Timer.time_left > 0:
 		return
 	position = Vector2(x, -100)
-	$Sprite2D.flip_h = x > 1280/2
+
+	$Sprite2D.flip_h = x - %Bnuuy.position.x > 0
+
 	$Timer.start(0.2)
-	#Sfx.play_sfx("falling")
 	visible = true
 	speed = 100
 	accel = 20
@@ -26,3 +27,4 @@ func _physics_process(delta):
 		accel = 0
 		speed = 0
 		Sfx.play_sfx("punch")
+		Minigame.get_game(self).screenshake()
