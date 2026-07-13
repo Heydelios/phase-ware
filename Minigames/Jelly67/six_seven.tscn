@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dkib8adsa1ypu"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_6yi6w"]
+[ext_resource type="Texture2D" uid="uid://beynhmhaokghn" path="res://Minigames/Jelly67/jelly background.png" id="2_i56cd"]
+[ext_resource type="Texture2D" uid="uid://bn41f5hi88l2v" path="res://Minigames/Jelly67/6_7_spritesheet.png" id="3_k6rsv"]
+[ext_resource type="Script" uid="uid://cqjthkvny53pa" path="res://Minigames/Jelly67/jelly_67.gd" id="4_hhe3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7gyp"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swgug"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbwss"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln3kx"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga0uk"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7n5f"]
+atlas = ExtResource("3_k6rsv")
+region = Rect2(2560, 720, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytyw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7gyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swgug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbwss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln3kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga0uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7n5f")
+}],
+"loop": false,
+"name": &"6",
+"speed": 24.0
+}]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_6yi6w")]
+game_name = "SIX SEVEN"
+control_type = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=396981759]
+modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i56cd")
+expand_mode = 1
+
+[node name="Jelly67" type="AnimatedSprite2D" parent="." index="2" unique_id=656693759]
+unique_name_in_owner = true
+modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
+position = Vector2(640, 360)
+sprite_frames = SubResource("SpriteFrames_ytyw5")
+animation = &"6"
+frame = 5
+frame_progress = 1.0
+script = ExtResource("4_hhe3k")

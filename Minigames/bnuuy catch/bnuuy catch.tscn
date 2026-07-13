@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://d3rhg044dev4v" path="res://Minigames/bnuuy catch/hand.gd" id="3_k7ad1"]
 [ext_resource type="Texture2D" uid="uid://dkbemoowo8epj" path="res://Minigames/bnuuy catch/hand.png" id="3_lekso"]
 [ext_resource type="Texture2D" uid="uid://dvhsmm2t1wwv0" path="res://Minigames/bnuuy catch/hand_front.png" id="5_k7ad1"]
-[ext_resource type="Script" uid="uid://lvadwqqppo0k" path="res://Minigames/bnuuy catch/copy_hlfip.gd" id="6_0ognl"]
+[ext_resource type="Script" path="res://Minigames/bnuuy catch/copy_hlfip.gd" id="6_0ognl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k7ad1"]
 
