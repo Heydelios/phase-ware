@@ -42,13 +42,8 @@ func _process(delta: float) -> void:
 			hammer_pos.y += 25
 			var testx = abs(%Hitbox.global_position.x-hammer_pos.x)
 			var testy = abs(%Hitbox.global_position.y-hammer_pos.y)
-			
-			print(testy)
+
 			if (testx < 150 && testy < 150) :
-				
-				print("hit")
 				%Dorb.self_modulate = Color(1,1,1,0)
 				%BrokenDorb.visible = true
 				Minigame.win_game(self)
-			print(%Hitbox.global_position)
-			print(get_global_mouse_position())

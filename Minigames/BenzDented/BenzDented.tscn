@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cpp8q71qifg2n"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_tytei"]
+[ext_resource type="Script" uid="uid://d20qwkj1s28bg" path="res://Minigames/BenzDented/benz.gd" id="2_1wlmn"]
+[ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="3_n1r76"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n1r76"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_axbx1"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_tytei")]
+game_name = "BRAKE"
+control_type = 1
+
+[node name="Benz" type="TextureRect" parent="." index="1" unique_id=260715847]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 551.0
+offset_right = 623.0
+offset_bottom = 692.0
+texture = SubResource("ViewportTexture_n1r76")
+script = ExtResource("2_1wlmn")
+
+[node name="Boat" type="TextureRect" parent="." index="2" unique_id=102501951]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 435.0
+offset_right = 1322.0
+offset_bottom = 741.0
+texture = SubResource("ViewportTexture_axbx1")
+
+[node name="ParkingZone" type="TextureRect" parent="." index="4" unique_id=1711646008]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 471.0
+offset_top = 691.0
+offset_right = 993.0
+offset_bottom = 731.0
+texture = ExtResource("3_n1r76")
+expand_mode = 1

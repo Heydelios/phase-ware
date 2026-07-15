@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btddc3rg8usx"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_vlk7t"]
+[ext_resource type="Texture2D" uid="uid://dfmoysp6xudq0" path="res://Minigames/JarTighten/lid.png" id="2_3v7ef"]
+[ext_resource type="Script" uid="uid://bi8ytcduf6tup" path="res://Minigames/JarTighten/lid.gd" id="3_65a74"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_vlk7t")]
+game_name = "TIGHTEN"
+control_type = 2
+
+[node name="LidTex" type="Sprite2D" parent="." index="2" unique_id=1989486066]
+position = Vector2(640, 360)
+rotation = 0.5235988
+texture = ExtResource("2_3v7ef")
+script = ExtResource("3_65a74")
