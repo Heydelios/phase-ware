@@ -26,9 +26,13 @@ func _process(delta: float) -> void:
 	
 	if rotation*180/PI > 5*360:
 		#insert win_anim
+		%Anims.play("success")
 		Minigame.win_game(self)
+		%LidTex.visible = false
 	
 func on_loss() -> void:
+	%LidTex.visible = false
 	if Minigame.get_game(self).game_ended:
 		return
+	%Anims.play("failure")
 	#play loss_anim

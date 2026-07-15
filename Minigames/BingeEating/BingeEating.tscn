@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://i1mxh6fofk13" path="res://Minigames/BingeEating/fullbowl.png" id="3_ua2dy"]
 [ext_resource type="Texture2D" uid="uid://bfmg138os6n7u" path="res://Minigames/BingeEating/emptybowl.png" id="4_ds8hj"]
 [ext_resource type="Texture2D" uid="uid://denr4io37je2y" path="res://Minigames/BingeEating/eber_spritesheet.png" id="4_h0g5h"]
+[ext_resource type="Texture2D" uid="uid://bnu868wxo64ke" path="res://Minigames/BingeEating/success.png" id="6_1eldw"]
+[ext_resource type="Texture2D" uid="uid://t2agm0nti3vi" path="res://Minigames/BingeEating/failure.png" id="6_bwkp2"]
 [ext_resource type="Script" uid="uid://cdwwtrm16sik1" path="res://Minigames/BingeEating/ember.gd" id="6_ds8hj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmxk5"]
@@ -23,9 +25,37 @@ region = Rect2(2560, 0, 1280, 720)
 atlas = ExtResource("4_h0g5h")
 region = Rect2(0, 720, 1280, 720)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u16to"]
+atlas = ExtResource("6_bwkp2")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v615y"]
+atlas = ExtResource("6_bwkp2")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suxay"]
+atlas = ExtResource("6_bwkp2")
+region = Rect2(2560, 0, 1280, 720)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yuwwq"]
 atlas = ExtResource("4_h0g5h")
 region = Rect2(2560, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dti7g"]
+atlas = ExtResource("6_1eldw")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqr6x"]
+atlas = ExtResource("6_1eldw")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wagpc"]
+atlas = ExtResource("6_1eldw")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30vch"]
+atlas = ExtResource("6_1eldw")
+region = Rect2(3840, 0, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65j3v"]
 animations = [{
@@ -48,11 +78,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u16to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v615y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suxay")
+}],
+"loop": false,
+"name": &"failure",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yuwwq")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dti7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqr6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wagpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30vch")
+}],
+"loop": false,
+"name": &"success",
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_4wawx"]
@@ -209,9 +270,9 @@ texture = ExtResource("4_ds8hj")
 [node name="Ember" type="AnimatedSprite2D" parent="." index="5" unique_id=381097750]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_65j3v")
-animation = &"eat"
+animation = &"failure"
 autoplay = "idle"
-frame = 3
+frame = 2
 frame_progress = 1.0
 script = ExtResource("6_ds8hj")
 
