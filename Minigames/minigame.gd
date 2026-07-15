@@ -39,10 +39,12 @@ func _time_over() -> void:
 	if !game_ended:
 		if should_win_on_timeover:
 			_minigame_won()
+			Sfx.play_sfx("correct")
 		else:
 			_minigame_loss()
+			Sfx.play_sfx("ring short")
 		
-	await get_tree().create_timer(minigame_end_duration).timeout
+		await get_tree().create_timer(minigame_end_duration).timeout
 	if game_won:
 		Events.minigame_won.emit()
 	else:
@@ -51,11 +53,15 @@ func _time_over() -> void:
 	queue_free()
 
 func _minigame_loss() -> void:
+	if game_ended:
+		return
 	game_ended = true
 	Sfx.play_sfx("booing")
 	game_won = false
 
 func _minigame_won() -> void:
+	if game_ended:
+		return
 	game_ended = true
 	Sfx.play_sfx("cheering")
 	game_won = true

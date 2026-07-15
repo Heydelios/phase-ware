@@ -5,7 +5,6 @@ var ticks:int=0
 func tick(amount:int=1):
 	if ticks < 12 and ticks + amount >= 12:
 		Events.time_over.emit()
-		Sfx.play_sfx("ring short")
 		print("time_over")
 
 	ticks += 1
