@@ -123,14 +123,18 @@ script = ExtResource("4_7pysu")
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -405.35834
+offset_left = -9.059998
+offset_top = -192.4447
+offset_right = 0.94000244
+offset_bottom = -182.4447
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.62418026, 4.0911138e-07, 0.33964518, 0.3372549)
+color = Color(0, 1, 0, 1)
 
 [node name="BrokenDorb" type="TextureRect" parent="Dorb" index="1" unique_id=1172573531]
 unique_name_in_owner = true
@@ -153,3 +157,18 @@ script = ExtResource("4_iwq4c")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1546134771]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_d6vqy")
+
+[node name="Dot" type="ColorRect" parent="." index="6" unique_id=108317318]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -405.35834
+offset_right = -1260.0
+offset_bottom = -385.35834
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0, 0, 1)

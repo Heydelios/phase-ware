@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	difference = mouse_position - get_global_mouse_position()
 	global_position -= difference
 	mouse_position = get_global_mouse_position()
-
+	%Dot.position = %Hitbox.global_position #+ Vector2(150,0)
 	if in_cooldown:
 		timer += delta
 		if timer > cooldown:
@@ -38,10 +38,13 @@ func _process(delta: float) -> void:
 			print("click")
 			%Hammer.play("bash")
 			var hammer_pos := get_global_mouse_position() + offset_vector
+			hammer_pos.x += 125
+			hammer_pos.y += 25
 			var testx = abs(%Hitbox.global_position.x-hammer_pos.x)
 			var testy = abs(%Hitbox.global_position.y-hammer_pos.y)
+			
 			print(testy)
-			if (testx < 270 && testy < 120) :
+			if (testx < 150 && testy < 150) :
 				
 				print("hit")
 				%Dorb.self_modulate = Color(1,1,1,0)
