@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 	var cursor_pos := get_local_mouse_position()
 	rotation += cursor_pos.angle() + start_rot
 	
-	print(rotation*180/PI)
 	if rotation*180/PI > 5*360:
 		#insert win_anim
 		Minigame.win_game(self)

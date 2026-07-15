@@ -34,7 +34,6 @@ func display_counter() -> void:
 	get_tree().create_timer(duration).timeout.connect(hide_counter)
 	
 func hide_counter() -> void:
-	print("go here?")
 	%MinigameCounter.visible = false
 	%Snow.visible = true
 	get_tree().create_timer(snow_duration).timeout.connect(queue_free)

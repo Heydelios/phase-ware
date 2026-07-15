@@ -9,7 +9,6 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.is_action_pressed("spacebar"):
 			mash_counter += 1
-			print("mash + 1")
 			play("eat")
 			if mash_counter == mash_needed:
 				%AnimationPlayer.play("bowl_eaten")

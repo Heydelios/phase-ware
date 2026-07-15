@@ -36,7 +36,7 @@ func build_minigame_list():
 					minigame_list.append(load(game_dir + d + f))
 					print(f)
 						# this code is not very wheelchair accessible
-
+	print(minigame_list.size(), " minigames found")
 func _ready() -> void:
 	print("building minigame list:")
 	build_minigame_list()
@@ -122,7 +122,7 @@ func load_next_minigame() -> void:
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
 	load_next_minigame()
-	next_minigame = load("res://Minigames/JarTighten/JarTighten.tscn").instantiate()
+	#next_minigame = load("res://Minigames/JarTighten/JarTighten.tscn").instantiate()
 	print("intro end")
 
 func _on_minigame_won() -> void:
