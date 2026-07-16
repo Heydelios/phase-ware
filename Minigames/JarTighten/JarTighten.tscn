@@ -263,4 +263,5 @@ unique_name_in_owner = true
 position = Vector2(640, 360)
 rotation = 0.5235988
 texture = ExtResource("2_3v7ef")
+flip_h = true
 script = ExtResource("3_65a74")

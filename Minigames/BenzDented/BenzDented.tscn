@@ -2,39 +2,223 @@
 
 [ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_tytei"]
 [ext_resource type="Script" uid="uid://d20qwkj1s28bg" path="res://Minigames/BenzDented/benz.gd" id="2_1wlmn"]
-[ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="3_n1r76"]
+[ext_resource type="Texture2D" uid="uid://bih1yvew2l85s" path="res://Minigames/BenzDented/asphalt.jpg" id="2_or3ur"]
+[ext_resource type="Texture2D" uid="uid://bam4swuxdodsu" path="res://Minigames/BenzDented/ShiinaParkingSim_Car.png" id="2_x5t6n"]
+[ext_resource type="Texture2D" uid="uid://rpcbr2w64f6t" path="res://Minigames/BenzDented/ShiinaParkingSim_CarDead.png" id="4_j382h"]
+[ext_resource type="Texture2D" uid="uid://cbh81vyndx4ab" path="res://Minigames/BenzDented/ShiinaParkingSim_Boat.png" id="5_aqbqe"]
+[ext_resource type="Texture2D" uid="uid://d2ffso541npc7" path="res://Minigames/BenzDented/ShiinaParkingSim_Target.png" id="6_bbbhp"]
+[ext_resource type="Texture2D" uid="uid://cw8xc15avfclv" path="res://Minigames/BenzDented/ShiinaParkingSim_FishSad.png" id="8_of1wa"]
+[ext_resource type="Texture2D" uid="uid://lqs1v5r6uphp" path="res://Minigames/BenzDented/ShiinaParkingSim_ShiinaSad.png" id="9_ap62n"]
+[ext_resource type="Texture2D" uid="uid://hq22hfm8s2yq" path="res://Minigames/BenzDented/ShiinaParkingSim_ShiinaHappy.png" id="10_kq7c6"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_n1r76"]
+[sub_resource type="Animation" id="Animation_or3ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SakanaLoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 439)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShiinaLoss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-155.99997, 536)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShiinaWin:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-159, 480)]
+}
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_axbx1"]
+[sub_resource type="Animation" id="Animation_of1wa"]
+resource_name = "loss"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SakanaLoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.3077863, 1),
+"update": 0,
+"values": [Vector2(1282, 439), Vector2(1046, 439)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShiinaLoss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.23325838, 1),
+"update": 0,
+"values": [Vector2(-160, 536), Vector2(41.999996, 536)]
+}
+
+[sub_resource type="Animation" id="Animation_kq7c6"]
+resource_name = "loss_alt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShiinaLoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-160, 536), Vector2(41.999996, 536)]
+}
+
+[sub_resource type="Animation" id="Animation_ap62n"]
+resource_name = "win"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShiinaWin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.24148417, 1),
+"update": 0,
+"values": [Vector2(-151, 480), Vector2(0, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kq7c6"]
+_data = {
+&"RESET": SubResource("Animation_or3ur"),
+&"loss": SubResource("Animation_of1wa"),
+&"loss_alt": SubResource("Animation_kq7c6"),
+&"win": SubResource("Animation_ap62n")
+}
 
 [node name="Minigame" unique_id=1929227684 instance=ExtResource("1_tytei")]
 game_name = "BRAKE"
 control_type = 1
 
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=457201952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_or3ur")
+expand_mode = 1
+
 [node name="Benz" type="TextureRect" parent="." index="1" unique_id=260715847]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 504.0
-offset_top = 551.0
-offset_right = 623.0
-offset_bottom = 692.0
-texture = SubResource("ViewportTexture_n1r76")
+offset_left = 126.0
+offset_top = 513.99994
+offset_right = 302.0
+offset_bottom = 654.99994
+scale = Vector2(1.52, 1.52)
+texture = ExtResource("2_x5t6n")
 script = ExtResource("2_1wlmn")
+
+[node name="BenzBroke" type="TextureRect" parent="Benz" index="0" unique_id=1228019257]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.9737244
+offset_bottom = -1.9737244
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j382h")
 
 [node name="Boat" type="TextureRect" parent="." index="2" unique_id=102501951]
 layout_mode = 0
-offset_left = 992.0
-offset_top = 435.0
-offset_right = 1322.0
-offset_bottom = 741.0
-texture = SubResource("ViewportTexture_axbx1")
+offset_left = 991.0
+offset_top = 421.0
+offset_right = 1321.0
+offset_bottom = 727.0
+texture = ExtResource("5_aqbqe")
 
-[node name="ParkingZone" type="TextureRect" parent="." index="4" unique_id=1711646008]
+[node name="ParkingZone" type="TextureRect" parent="." index="3" unique_id=1711646008]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 471.0
-offset_top = 691.0
-offset_right = 993.0
-offset_bottom = 731.0
-texture = ExtResource("3_n1r76")
-expand_mode = 1
+offset_left = 572.16235
+offset_top = 691.8502
+offset_right = 970.9812
+offset_bottom = 731.8502
+rotation = -0.017453292
+texture = ExtResource("6_bbbhp")
+
+[node name="Clock" parent="." index="4" unique_id=817307990]
+layout_mode = 1
+offset_left = 28.0
+offset_top = 2.0
+offset_right = 240.0
+offset_bottom = 213.99957
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1208364037]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_kq7c6")
+autoplay = &"RESET"
+
+[node name="SakanaLoss" type="TextureRect" parent="." index="6" unique_id=1375453185]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -281.0
+offset_right = 299.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_of1wa")
+
+[node name="ShiinaLoss" type="TextureRect" parent="." index="7" unique_id=308549903]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -155.99997
+offset_top = -184.0
+offset_right = 1.0000305
+grow_vertical = 0
+scale = Vector2(1.26, 1.26)
+pivot_offset = Vector2(157, 184)
+texture = ExtResource("9_ap62n")
+
+[node name="ShiinaWin" type="TextureRect" parent="." index="8" unique_id=609968682]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -240.0
+offset_right = -6.0
+grow_vertical = 0
+texture = ExtResource("10_kq7c6")
