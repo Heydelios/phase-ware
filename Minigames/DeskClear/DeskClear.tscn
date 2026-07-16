@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dcxcr6ruh6sq4"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_wb4lu"]
+[ext_resource type="Texture2D" uid="uid://bln8vngrlfkjn" path="res://Minigames/DeskClear/background.png" id="2_b760j"]
+[ext_resource type="Texture2D" uid="uid://dvvhics02550a" path="res://Minigames/DeskClear/desk.png" id="3_d7beb"]
+[ext_resource type="Texture2D" uid="uid://c6ogp2vn2sfw1" path="res://Minigames/DeskClear/hand.png" id="4_og8nx"]
+[ext_resource type="Script" uid="uid://bvvomhjr4fodj" path="res://Minigames/DeskClear/hand.gd" id="5_wbc0q"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_wb4lu")]
+game_name = "CLEAN"
+control_type = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=1774157912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b760j")
+
+[node name="Desk" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="1" unique_id=1068028184]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -482.5
+offset_top = -640.0
+offset_right = 482.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_d7beb")
+
+[node name="SpawnZone" type="ColorRect" parent="." index="1" unique_id=2079846198]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 223.0
+offset_top = 303.0
+offset_right = 1038.0
+offset_bottom = 436.0
+color = Color(0.6627451, 0, 0, 0)
+
+[node name="Hand" type="Sprite2D" parent="." index="2" unique_id=1499736738]
+z_index = 1
+position = Vector2(654, 603)
+texture = ExtResource("4_og8nx")
+offset = Vector2(1.065, 115.95)
+script = ExtResource("5_wbc0q")
+
+[node name="Clock" parent="." index="3" unique_id=817307990]
+z_index = 2

@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://d1vt0d0tpjr44"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_xbif5"]
+[ext_resource type="Texture2D" uid="uid://cq0ccby4sfdb6" path="res://Minigames/FincelStep/fincel_spritesheet.png" id="2_j1ajm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4xna"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bn15"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wlt6"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jjbc"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51n7n"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1knqe"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7phx6"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(768, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqhsf"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(896, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dxbq"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(512, 320, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2vmi"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(384, 320, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sma87"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(256, 320, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya1is"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(128, 320, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf0hj"]
+atlas = ExtResource("2_j1ajm")
+region = Rect2(0, 320, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qw5rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4xna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bn15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wlt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jjbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51n7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1knqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7phx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqhsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dxbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2vmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sma87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya1is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf0hj")
+}],
+"loop": true,
+"name": &"step",
+"speed": 8.0
+}]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_xbif5")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=300550641]
+position = Vector2(631, 474)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_qw5rl")
+animation = &"step"
+autoplay = "default"
+frame_progress = 0.688072
