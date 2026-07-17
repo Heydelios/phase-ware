@@ -4,12 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cs440w8ophogp" path="res://Placeholders/makeawish_bg.png" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://belbcnmqwlyno" path="res://UI/Healthbar/health_bar.tscn" id="3_451ce"]
 [ext_resource type="Texture2D" uid="uid://cg17h0nl5843d" path="res://MainScene/main_background.png" id="3_rg2y2"]
-[ext_resource type="AudioStream" uid="uid://cb1sfbd3evmri" path="res://audio/music/prelude-80bpm.ogg" id="6_cvl78"]
 [ext_resource type="Script" uid="uid://d07e1rxouxtxo" path="res://MainScene/music_player.gd" id="7_hd54x"]
-[ext_resource type="AudioStream" uid="uid://d37exef5wlr06" path="res://audio/music/main-80bpm.ogg" id="7_ydrcl"]
-[ext_resource type="AudioStream" uid="uid://bt3ue2fsbtk68" path="res://audio/music/loss-80bpm.ogg" id="8_cvl78"]
-[ext_resource type="AudioStream" uid="uid://vbdlrgh2umv0" path="res://audio/music/win-80bpm.ogg" id="9_ydrcl"]
-[ext_resource type="AudioStream" uid="uid://q3lfauavhsd" path="res://audio/music/speed_up-80bpm.ogg" id="10_vx33o"]
 
 [sub_resource type="Animation" id="Animation_rg2y2"]
 length = 0.001
@@ -102,8 +97,3 @@ libraries/ = SubResource("AnimationLibrary_b8f1d")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=808490349]
 bus = &"Music"
 script = ExtResource("7_hd54x")
-prelude = ExtResource("6_cvl78")
-main = ExtResource("7_ydrcl")
-loss = ExtResource("8_cvl78")
-win = ExtResource("9_ydrcl")
-speed_up = ExtResource("10_vx33o")
