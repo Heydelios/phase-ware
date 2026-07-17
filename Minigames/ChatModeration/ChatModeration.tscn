@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dk2mg5nsrg2cw"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_sajee"]
+[ext_resource type="Texture2D" uid="uid://d0l52qhj5u2wt" path="res://Minigames/ChatModeration/chatbox.JPG" id="2_2s6ub"]
+[ext_resource type="Script" uid="uid://dnk102a5klbi2" path="res://Minigames/ChatModeration/chatbox.gd" id="3_hb64n"]
+[ext_resource type="PackedScene" uid="uid://1oei0xqewued" path="res://Minigames/ChatModeration/chat_message.tscn" id="4_rqyr5"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_sajee")]
+game_name = "BAN THE INTRUDERS"
+control_type = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=47607493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.5
+offset_top = -386.5
+offset_right = 262.5
+offset_bottom = 386.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.93, 0.93)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_2s6ub")
+
+[node name="ColorRect" type="ColorRect" parent="Background/TextureRect" index="0" unique_id=412473725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.962372
+offset_top = 90.80108
+offset_right = -6.5859985
+offset_bottom = -13.381653
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chatbox" type="VBoxContainer" parent="." index="1" unique_id=751655725]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = 89.0
+offset_right = 207.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+script = ExtResource("3_hb64n")
+
+[node name="ChatMessage" parent="Chatbox" index="0" unique_id=97825970 instance=ExtResource("4_rqyr5")]
+layout_mode = 2

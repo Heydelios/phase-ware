@@ -15,7 +15,7 @@ func run_cycle():
 
 var run_cumer = Cumer.new(1.0/80, run_cycle)
 func _process(delta):
-	if not alive:
+	if not alive or Minigame.get_game(self).game_ended:
 		return
 	$Sprite2D.flip_h = velocity.x > 0
 	var spd = abs(velocity.x)

@@ -46,7 +46,7 @@ offset_bottom = 436.0
 color = Color(0.6627451, 0, 0, 0)
 
 [node name="Hand" type="Sprite2D" parent="." index="2" unique_id=1499736738]
-z_index = 1
+z_index = 2
 position = Vector2(654, 603)
 texture = ExtResource("4_og8nx")
 offset = Vector2(1.065, 115.95)

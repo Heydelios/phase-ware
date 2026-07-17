@@ -10,7 +10,6 @@ var time_over : bool = false
 var game_ended : bool = false
 var game_won : bool = false
 
-
 func _ready() -> void:
 	Events.time_over.connect(_time_over)
 

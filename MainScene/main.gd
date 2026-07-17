@@ -10,6 +10,8 @@ var minigame_prompt := preload("res://Minigames/popup_text.tscn")
 var main_screen_display := preload("res://UI/Television/minigame_start.tscn")
 var should_transition := true
 
+var announcement := preload("res://MainScene/announcement.tscn")
+
 var timer : float = 0
 var speed : float = 1
 var lives : int = 4
@@ -98,6 +100,13 @@ func minigame_end(delta: float) -> void:
 
 func boss_stage(delta: float) -> void:
 	var boss_anim_duration : float = 2
+	if timer == 0:
+		#Play Faster animation
+		var boss_scene = announcement.instantiate()
+		boss_scene.duration = boss_anim_duration
+		boss_scene.is_boss = true
+		%TextAnchor.add_child(boss_scene)
+	
 	timer += delta
 	if timer >= boss_anim_duration:
 		timer = 0
@@ -105,6 +114,13 @@ func boss_stage(delta: float) -> void:
 
 func speed_up(delta: float) -> void:
 	var speed_up_duration : float = 2
+	
+	if timer == 0:
+		#Play Faster animation
+		var announcement_scene = announcement.instantiate()
+		announcement_scene.duration = speed_up_duration
+		%TextAnchor.add_child(announcement_scene)
+		
 	timer += delta
 	if timer >= speed_up_duration:
 		speed += 0.5
@@ -122,7 +138,7 @@ func load_next_minigame() -> void:
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
 	load_next_minigame()
-	#next_minigame = load("res://Minigames/BenzDented/BenzDented.tscn").instantiate()
+	next_minigame = load("res://Minigames/ChatModeration/ChatModeration.tscn").instantiate()
 	print("intro end")
 
 func _on_minigame_won() -> void:
@@ -160,7 +176,6 @@ func _on_minigame_end() -> void:
 	if should_speedup:
 		state = main_state.SPEED_UP
 		should_speedup = false
-		#Play Faster animation
 		return
 	if should_start_boss:
 		state = main_state.BOSS_STAGE
