@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dg0chfbw8sf50"
-path="res://.godot/imported/pianta_scene.glb-841c5f16681f346211be0a2485a3657f.scn"
+uid="uid://b6vlxn03luwhq"
+path="res://.godot/imported/background.glb-173d4af170fb04110909d13f96815f06.scn"
 
 [deps]
 
-source_file="res://Minigames/PiantAssassination/pianta_scene.glb"
-dest_files=["res://.godot/imported/pianta_scene.glb-841c5f16681f346211be0a2485a3657f.scn"]
+source_file="res://Minigames/PiantAssassination/background.glb"
+dest_files=["res://.godot/imported/background.glb-173d4af170fb04110909d13f96815f06.scn"]
 
 [params]
 
