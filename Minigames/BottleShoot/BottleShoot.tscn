@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://yvdajuonhr85"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_7bont"]
+[ext_resource type="Script" uid="uid://by3uo3ubft6yc" path="res://Minigames/BottleShoot/BottleShoot.gd" id="2_460x1"]
+[ext_resource type="Texture2D" uid="uid://dg8g47w4rnnvr" path="res://Minigames/BottleShoot/PankoWaiting.png" id="2_wlnon"]
+[ext_resource type="Texture2D" uid="uid://dhbet0v538w14" path="res://Minigames/BottleShoot/PankoShoot.png" id="3_aaiys"]
+[ext_resource type="Texture2D" uid="uid://ctn5wol06ct50" path="res://Minigames/BottleShoot/WesternBG.png" id="3_kjw21"]
+[ext_resource type="Texture2D" uid="uid://1jqx57bm2m6t" path="res://Minigames/BottleShoot/Target.png" id="4_130qw"]
+[ext_resource type="Texture2D" uid="uid://lxlp271v14ct" path="res://Minigames/BottleShoot/TargetHit.png" id="5_1auml"]
+[ext_resource type="Texture2D" uid="uid://y3t2dsdadjd1" path="res://Minigames/BottleShoot/TargetLock.png" id="6_1auml"]
+[ext_resource type="AudioStream" uid="uid://goyua3nc8m00" path="res://Minigames/BottleShoot/Gunshot.mp3" id="8_etct7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bont"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wlnon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aaiys")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wlnon")
+}],
+"loop": false,
+"name": &"Wait",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sx0hb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_130qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1auml")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_130qw")
+}],
+"loop": true,
+"name": &"Wait",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1auml"]
+size = Vector2(41, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_460x1"]
+size = Vector2(20, 58)
+
+[sub_resource type="Animation" id="Animation_460x1"]
+resource_name = "Cycle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetLock:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(588, 292), Vector2(1194, 292), Vector2(588, 292)]
+}
+
+[sub_resource type="Animation" id="Animation_kjw21"]
+resource_name = "Loss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Emote:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(578, 145), Vector2(578, 224)]
+}
+
+[sub_resource type="Animation" id="Animation_etct7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetLock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(588, 292)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Emote:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(578, 145)]
+}
+
+[sub_resource type="Animation" id="Animation_xfx48"]
+resource_name = "Win"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Emote:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(578, 145), Vector2(578, 125), Vector2(578, 145)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjw21"]
+_data = {
+&"Cycle": SubResource("Animation_460x1"),
+&"Loss": SubResource("Animation_kjw21"),
+&"RESET": SubResource("Animation_etct7"),
+&"Win": SubResource("Animation_xfx48")
+}
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_7bont")]
+script = ExtResource("2_460x1")
+game_name = "SHOOT THE BOTTLE"
+control_type = 2
+
+[node name="Background" parent="." index="0" unique_id=1068855061]
+metadata/_edit_lock_ = true
+
+[node name="BG" type="TextureRect" parent="." index="1" unique_id=994858357]
+self_modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_top = -261.0
+offset_right = 1281.0
+offset_bottom = 813.0
+texture = ExtResource("3_kjw21")
+
+[node name="Panko" type="AnimatedSprite2D" parent="." index="3" unique_id=1293011600]
+position = Vector2(315, 359)
+sprite_frames = SubResource("SpriteFrames_7bont")
+animation = &"Shoot"
+
+[node name="Table" type="AnimatedSprite2D" parent="." index="4" unique_id=139628245]
+position = Vector2(905, 334)
+sprite_frames = SubResource("SpriteFrames_sx0hb")
+animation = &"Hit"
+frame = 1
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="Table" index="0" unique_id=601098109]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Area2D" index="0" unique_id=2031676334]
+position = Vector2(-0.5, -40.5)
+shape = SubResource("RectangleShape2D_1auml")
+
+[node name="Emote" type="Sprite2D" parent="." index="5" unique_id=1686017166]
+position = Vector2(578, 145)
+
+[node name="TargetLock" type="Sprite2D" parent="." index="6" unique_id=1020346793]
+position = Vector2(588, 292)
+texture = ExtResource("6_1auml")
+
+[node name="Area2D" type="Area2D" parent="TargetLock" index="0" unique_id=1447686997]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetLock/Area2D" index="0" unique_id=1468902383]
+shape = SubResource("RectangleShape2D_460x1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7" unique_id=426151199]
+libraries/ = SubResource("AnimationLibrary_kjw21")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." index="8" unique_id=319352068]
+stream = ExtResource("8_etct7")
+
+[connection signal="area_entered" from="TargetLock/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="TargetLock/Area2D" to="." method="_on_area_2d_area_exited"]
