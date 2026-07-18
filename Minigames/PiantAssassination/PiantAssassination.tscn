@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://p62vkh6pxuc5"]
+
+[ext_resource type="PackedScene" uid="uid://bveqx4slbkxld" path="res://Minigames/3d_game.tscn" id="1_nnc5y"]
+[ext_resource type="PackedScene" uid="uid://c2681khyilfpe" path="res://Minigames/PiantAssassination/pianta_scenea.tscn" id="2_i3k0s"]
+[ext_resource type="Script" uid="uid://dtw53x3w6vt6f" path="res://Minigames/PiantAssassination/pianta_scene.gd" id="3_2e6tq"]
+
+[sub_resource type="Environment" id="Environment_2e6tq"]
+
+[sub_resource type="Compositor" id="Compositor_2e6tq"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_nnc5y")]
+
+[node name="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="0" unique_id=719076857]
+environment = SubResource("Environment_2e6tq")
+compositor = SubResource("Compositor_2e6tq")
+
+[node name="pianta_scene" parent="SubViewportContainer/SubViewport/Node3D/WorldEnvironment" index="0" unique_id=413847188 instance=ExtResource("2_i3k0s")]
+script = ExtResource("3_2e6tq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="1" unique_id=1436362066]
+transform = Transform3D(1, 0, 0, 0, -0.6233475, 0.78194493, 0, -0.78194493, -0.6233475, 0, 8.429548, 0)

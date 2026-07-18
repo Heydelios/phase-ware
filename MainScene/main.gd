@@ -138,7 +138,7 @@ func load_next_minigame() -> void:
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
 	load_next_minigame()
-	next_minigame = load("res://Minigames/ChatModeration/ChatModeration.tscn").instantiate()
+	next_minigame = load("res://Minigames/PiantAssassination/PiantAssassination.tscn").instantiate()
 	print("intro end")
 
 func _on_minigame_won() -> void:
