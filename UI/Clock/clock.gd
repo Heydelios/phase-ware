@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	texture = (texture as HandyAtlas) # tells the editor what type it is and also throws an error if type mismatch
 	texture.region.size = texture.atlas.get_size() / Vector2(14,1)
-	size = texture.region.size * 4
+	size = texture.region.size * 0.5
 	texture.set_xy(0,0)

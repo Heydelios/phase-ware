@@ -6,13 +6,13 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0t2r4"]
 atlas = ExtResource("1_ga67c")
-region = Rect2(0, 0, 48, 0)
+region = Rect2(0, 0, 384, 0)
 script = ExtResource("2_1ixnv")
 metadata/_custom_type_script = "uid://cuqsrnpd4l723"
 
 [node name="Clock" type="TextureRect" unique_id=817307990]
-offset_top = 508.0
-offset_right = 212.0
-offset_bottom = 719.9996
+offset_right = 384.0
+offset_bottom = 384.0
+scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_0t2r4")
 script = ExtResource("1_s7hhp")
