@@ -32,10 +32,8 @@ func play_sfx(effect_name:String):
 	pb.play_stream(sfx[effect_name])
 
 func _ready():
-	print("building sfx table:")
 	_add_audio_directory("res://audio/bitcrushed_sfx")
 	_add_audio_directory("res://audio/eating")
 	_add_audio_directory("res://audio/plain_sfx")
-	print(sfx)
 	stream = AudioStreamPolyphonic.new()
 	stream.polyphony = 8
