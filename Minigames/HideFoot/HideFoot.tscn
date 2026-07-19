@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cttln0ekbov6o"]
+
+[ext_resource type="PackedScene" uid="uid://bcjfjnem71v7w" path="res://Minigames/2d_game.tscn" id="1_7d6xp"]
+[ext_resource type="Texture2D" uid="uid://bfhviaqgu0rfj" path="res://Minigames/HideFoot/background.png" id="2_2qwld"]
+[ext_resource type="Texture2D" uid="uid://ku8rh2wx132k" path="res://Minigames/HideFoot/foot_l.png" id="3_rxgfa"]
+[ext_resource type="Texture2D" uid="uid://cncnfgmbyrpbj" path="res://Minigames/HideFoot/shoe_l.png" id="4_rxgfa"]
+[ext_resource type="Script" uid="uid://bckjicpy2pvro" path="res://Minigames/HideFoot/shoe.gd" id="5_vd2t8"]
+
+[node name="Minigame" unique_id=1929227684 instance=ExtResource("1_7d6xp")]
+game_name = "COVER UP"
+control_type = 3
+
+[node name="TextureRect" type="TextureRect" parent="Background" parent_id_path=PackedInt32Array(1068855061) index="0" unique_id=1632171842]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2qwld")
+
+[node name="Foot" type="TextureRect" parent="." index="2" unique_id=610792115]
+unique_name_in_owner = true
+self_modulate = Color(0.82606, 0.82606006, 0.82606, 1)
+layout_mode = 0
+offset_left = -79.0
+offset_top = 23.0
+offset_right = 202.0
+offset_bottom = 590.0
+scale = Vector2(0.6, 0.6)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_rxgfa")
+expand_mode = 1
+
+[node name="Shoe" type="TextureButton" parent="." index="3" unique_id=1037751237]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.99999
+offset_top = -2.9999971
+offset_right = 581.0
+offset_bottom = 627.0
+scale = Vector2(0.6, 0.6)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_rxgfa")
+script = ExtResource("5_vd2t8")
+
+[connection signal="button_down" from="Shoe" to="Shoe" method="_on_button_down"]
+[connection signal="button_up" from="Shoe" to="Shoe" method="_on_button_up"]
