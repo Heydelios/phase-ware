@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Sfx="*uid://cr3pwqnaoli0f"
 Events="*uid://3f4jdpk5s570"
+Music="*uid://d07e1rxouxtxo"
 
 [display]
 

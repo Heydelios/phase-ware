@@ -117,6 +117,7 @@ func speed_up(delta: float) -> void:
 	
 	if timer == 0:
 		#Play Faster animation
+		Music.speed_up(speed + 0.5)
 		var announcement_scene = announcement.instantiate()
 		announcement_scene.duration = speed_up_duration
 		%TextAnchor.add_child(announcement_scene)
@@ -138,7 +139,6 @@ func load_next_minigame() -> void:
 func _on_intro_end() -> void:
 	state = main_state.MINIGAME_START
 	load_next_minigame()
-	next_minigame = load("res://Minigames/PiantAssassination/PiantAssassination.tscn").instantiate()
 	print("intro end")
 
 func _on_minigame_won() -> void:
