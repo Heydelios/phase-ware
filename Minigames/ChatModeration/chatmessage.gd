@@ -23,15 +23,18 @@ func _ready() -> void:
 	if !is_wrong:
 		%text.text = "a"
 	var string := "wa"
-	var max_wa : int = 9
-	max_wa = (20 - %name.text.length())/2
+	var max_wa : int = 11
+	max_wa = (22 - %name.text.length())/2
 	for i in range(randi_range(1,max_wa)):
 		%text.text += string
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if global_position.y < 150:
+		self_modulate = Color(0,0,0,0)
+		if is_wrong:
+			get_parent().wrong_ban()
 
 
 func _on_pressed() -> void:

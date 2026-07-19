@@ -9,6 +9,9 @@ var diana_death_pos : Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Events.time_over.connect(on_loss)
+	
+	%sleepy.get_node("AnimationPlayer").play("lie_down")
 	%car.get_node("AnimationPlayer").play("car_drive")
 	%piantafk.get_node("AnimationPlayer").play("piantafk_drive")
 	%piantana.get_node("AnimationPlayer").play("piantiana_drive")
@@ -57,3 +60,16 @@ func _on_pianta_button_pressed() -> void:
 			anim.track_set_key_value(0, i, diana_death_pos - Vector3((i-16), 0, 0))
 	
 	pass # Replace with function body.
+
+func on_loss() -> void:
+	if Minigame.get_game(self).game_ended:
+		return
+	self_modulate = Color(0,0,0,0)
+	%sleepy.get_node("AnimationPlayer").play("loss_anim_slp")
+	
+	#var anim: Animation = %camera.get_node("AnimationPlayer").get_animation("loss_camera")
+	#var pos_val : Vector3 = anim.track_get_key_value(0, 1)
+	#anim.track_set_key_value(0, 1, pos_val - Vector3(-10,0,0))
+	#%camera.get_node("AnimationPlayer").play("loss_camera")
+	%map_drag.position += Vector3(.5,0,-2)
+	%sleepy.position += Vector3(.5,0,-2)

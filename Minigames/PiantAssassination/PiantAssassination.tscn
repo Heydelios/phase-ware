@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://oy684jb0jbcu" path="res://Minigames/PiantAssassination/piantana.glb" id="4_33qkr"]
 [ext_resource type="Texture2D" uid="uid://wblbkxcqg0uy" path="res://Minigames/PiantAssassination/scope.png" id="6_oa4su"]
 [ext_resource type="Script" uid="uid://c0o6englc4wwl" path="res://Minigames/PiantAssassination/scope.gd" id="6_s0mkv"]
+[ext_resource type="PackedScene" uid="uid://b6mwd38c3k2ca" path="res://Minigames/PiantAssassination/map_drag.glb" id="7_vc6sl"]
+[ext_resource type="Texture2D" uid="uid://j3v12m1iiepe" path="res://Minigames/PiantAssassination/Capture.JPG" id="8_b4u11"]
+[ext_resource type="PackedScene" uid="uid://cvsx4kjdv0xuq" path="res://Minigames/PiantAssassination/sleepy_all.glb" id="8_bcms5"]
 
 [sub_resource type="Environment" id="Environment_2e6tq"]
 
@@ -26,6 +29,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(138, 45)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PiantaButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
 
 [sub_resource type="Animation" id="Animation_s0mkv"]
 resource_name = "pianta_travel"
@@ -37,10 +52,22 @@ tracks/0/path = NodePath("PiantaButton:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.667, 1.33, 2, 2.56, 3, 3.33, 3.8, 4.39),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.16666667, 0.9, 1.33, 2, 2.6333334, 3.1666667, 3.4966667, 3.6666667, 3.717822, 3.9808705, 4.5566664),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-160, 49), Vector2(138, 45), Vector2(232, 52), Vector2(268, 89), Vector2(256, 202), Vector2(354, 278), Vector2(601, 290), Vector2(1267, 224), Vector2(1386, 127)]
+"values": [Vector2(-160, 49), Vector2(138, 45), Vector2(232, 52), Vector2(268, 89), Vector2(256, 202), Vector2(354, 278), Vector2(614, 290), Vector2(830, 283), Vector2(914.382, 279.976), Vector2(1269.865, 239.84), Vector2(1386, 43.14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PiantaButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.6433334, 3.3333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(2, 1.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oa4su"]
@@ -53,25 +80,46 @@ _data = {
 game_name = "KILL HIM"
 control_type = 3
 
-[node name="background" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="0" unique_id=831967585 instance=ExtResource("2_oa4su")]
-
-[node name="car" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="1" unique_id=1457894920 instance=ExtResource("2_s0mkv")]
+[node name="Node3D" parent="SubViewportContainer/SubViewport" parent_id_path=PackedInt32Array(365878335) index="0" unique_id=1639515101]
 unique_name_in_owner = true
 
-[node name="piantana" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="2" unique_id=241636198 instance=ExtResource("4_33qkr")]
+[node name="background" parent="SubViewportContainer/SubViewport/Node3D" index="0" unique_id=831967585 instance=ExtResource("2_oa4su")]
+visible = false
+
+[node name="car" parent="SubViewportContainer/SubViewport/Node3D" index="1" unique_id=1457894920 instance=ExtResource("2_s0mkv")]
 unique_name_in_owner = true
 
-[node name="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="3" unique_id=719076857]
+[node name="piantana" parent="SubViewportContainer/SubViewport/Node3D" index="2" unique_id=241636198 instance=ExtResource("4_33qkr")]
+unique_name_in_owner = true
+
+[node name="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D" index="3" unique_id=719076857]
 environment = SubResource("Environment_2e6tq")
 compositor = SubResource("Compositor_2e6tq")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="4" unique_id=1436362066]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D" index="4" unique_id=1436362066]
 transform = Transform3D(1, 0, 0, 0, -0.6233475, 0.78194493, 0, -0.78194493, -0.6233475, 0, 8.429548, 0)
 
-[node name="piantafk" parent="SubViewportContainer/SubViewport/Node3D" parent_id_path=PackedInt32Array(1639515101) index="5" unique_id=2095682823 instance=ExtResource("3_oa4su")]
+[node name="piantafk" parent="SubViewportContainer/SubViewport/Node3D" index="5" unique_id=2095682823 instance=ExtResource("3_oa4su")]
 unique_name_in_owner = true
 
-[node name="Scope" type="TextureRect" parent="." index="2" unique_id=7066866]
+[node name="map_drag" parent="SubViewportContainer/SubViewport/Node3D" index="6" unique_id=2074780755 instance=ExtResource("7_vc6sl")]
+unique_name_in_owner = true
+
+[node name="sleepy" parent="SubViewportContainer/SubViewport/Node3D" index="7" unique_id=1026099954 instance=ExtResource("8_bcms5")]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="." index="2" unique_id=984646148]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_b4u11")
+expand_mode = 1
+
+[node name="Scope" type="TextureRect" parent="." index="3" unique_id=7066866]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -2560.0
@@ -82,18 +130,18 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("6_oa4su")
 script = ExtResource("6_s0mkv")
 
-[node name="PiantaButton" type="Button" parent="." index="3" unique_id=685540249]
+[node name="PiantaButton" type="Button" parent="." index="4" unique_id=685540249]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 138.0
 offset_top = 45.0
-offset_right = 192.99957
-offset_bottom = 117.00035
+offset_right = 193.00024
+offset_bottom = 117.0
 scale = Vector2(1.1, 1.1)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="ButtonPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1300715757]
+[node name="ButtonPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1300715757]
 libraries/ = SubResource("AnimationLibrary_oa4su")
 autoplay = &"pianta_travel"
 

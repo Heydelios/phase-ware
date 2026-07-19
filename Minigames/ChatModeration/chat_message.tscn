@@ -64,7 +64,7 @@ _data = {
 
 [node name="ChatMessage" type="Button" unique_id=97825970]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 60)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,15 +84,11 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/separation = 15
 
-[node name="pfp" type="TextureRect" parent="HBoxContainer" unique_id=1366093314]
-custom_minimum_size = Vector2(55, 55)
-layout_mode = 2
-
 [node name="name" type="Label" parent="HBoxContainer" unique_id=766104357]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "@john_message"
 
 [node name="text" type="Label" parent="HBoxContainer" unique_id=32138343]
@@ -101,7 +97,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "awawawawawawawawawa"
 autowrap_mode = 3
 
