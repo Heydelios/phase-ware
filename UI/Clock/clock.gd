@@ -5,11 +5,7 @@ var ticks:int = 0
 func tick(amount:int=1):
 	if ticks < 12 and ticks + amount >= 12:
 		Events.time_over.emit()
-		print("time_over")
-
 	ticks += amount
-	print(ticks)
-
 	match ticks:
 		9:
 			Sfx.play_sfx("tick")
