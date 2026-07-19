@@ -11,6 +11,7 @@ var main_screen_display := preload("res://UI/Television/minigame_start.tscn")
 var should_transition := true
 
 var announcement := preload("res://MainScene/announcement.tscn")
+var game_over := preload("res://GameOver/game_over.tscn")
 
 var timer : float = 0
 var speed : float = 1
@@ -147,9 +148,9 @@ func _on_minigame_won() -> void:
 		should_speedup = true
 		print("speed up")
 		
-	if wins % nb_of_wins_to_boss == 0:
-		should_start_boss = true
-		print("boss")
+	#if wins % nb_of_wins_to_boss == 0:
+		#should_start_boss = true
+		#print("boss")
 	#Play minigame won animation
 	var win_anim_duration : float = .5
 	print("minigame won")
@@ -158,14 +159,15 @@ func _on_minigame_won() -> void:
 	
 func _on_minigame_lost() -> void:
 	lives -= 1
-	if lives == 0:
-		_on_game_over()
-		return
+	
 	#Play minigame lost animation
 	var loss_anim_duration : float = .5
 	%HealthBar.lose_hp(lives)
 	print("minigame lost")
 	await get_tree().create_timer(loss_anim_duration).timeout
+	if lives == 0:
+		_on_game_over()
+		return
 	_on_minigame_end()
 	
 func _on_minigame_end() -> void:
@@ -187,7 +189,13 @@ func _on_minigame_end() -> void:
 	state = main_state.MINIGAME_END
 
 func _on_game_over() -> void:
+	anim_player.play("zoom_out")
 	state = main_state.GAME_OVER
 		#Play minigame lost animation
-	var gameover_anim_duration : float = .5
+	var gameover_anim_duration : float = 2
 	await get_tree().create_timer(gameover_anim_duration).timeout
+	var gameover_scene := game_over.instantiate()
+	gameover_scene.games_completed = wins
+	gameover_scene.max_speed = speed
+	%Background.add_child(gameover_scene)
+	

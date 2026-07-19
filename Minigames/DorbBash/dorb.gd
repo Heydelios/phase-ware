@@ -1,7 +1,7 @@
 extends TextureRect
 
 var rotation_dir : float = 0
-var rotation_speed : float = 1
+var rotation_speed : float = 2
 var coef := PI/90
 
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccw6crxs3xs73" path="res://UI/Television/minigame_start.gd" id="1_bayxi"]
 [ext_resource type="Script" uid="uid://cvvmpb42c1mgd" path="res://UI/ControlDisplay/control_display.gd" id="1_wq7y7"]
 [ext_resource type="Texture2D" uid="uid://b03ofxmc7gk0c" path="res://UI/ControlDisplay/wasd_icon.png" id="2_ydlbs"]
+[ext_resource type="FontFile" uid="uid://c5iouu02ne16w" path="res://UI/ChakraPetch-Bold.ttf" id="4_e26ue"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bayxi"]
 
@@ -55,6 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_e26ue")
 theme_override_font_sizes/font_size = 128
 text = "01"
 horizontal_alignment = 1

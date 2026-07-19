@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://q2omina1pgks"]
 
+[ext_resource type="FontFile" uid="uid://1vbegs2vrk3n" path="res://UI/ChakraPetch-Medium.ttf" id="1_fkpih"]
 [ext_resource type="Script" uid="uid://cx71dhydshee6" path="res://Minigames/popup_text.gd" id="1_lnfc1"]
 
 [sub_resource type="Animation" id="Animation_fkpih"]
@@ -80,8 +81,9 @@ pivot_offset = Vector2(540, 150)
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_fkpih")
 theme_override_font_sizes/font_size = 80
-text = "CATCH"
+text = "ertzert"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_lnfc1")

@@ -9,6 +9,7 @@ anchors_preset = 0
 script = ExtResource("1_b226h")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1024835973]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,6 +25,7 @@ grow_vertical = 2
 texture = ExtResource("2_duh1u")
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=577460494]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

@@ -1,6 +1,6 @@
 extends Node
 
-var intro_duration : float = 5
+var intro_duration : float = .1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(intro_duration).timeout

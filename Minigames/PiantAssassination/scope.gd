@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 	if Minigame.get_game(self).game_ended:
 		return
 		
+	
+	
 	difference = mouse_position - get_global_mouse_position()
 	global_position -= difference
 	mouse_position = get_global_mouse_position()
@@ -37,6 +39,7 @@ func _process(delta: float) -> void:
 		#%piantana.get_node("MonteW__m_MonteW").position += diana_death_pos
 
 func _on_pianta_button_pressed() -> void:
+	Sfx.play_sfx("dragunov_shot")
 	is_killed = true
 	print(is_killed)
 	Minigame.win_game(self)

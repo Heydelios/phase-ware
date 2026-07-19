@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6mnx0ek57fi0"]
 
 [ext_resource type="Script" uid="uid://b1jh27u81nlye" path="res://MainScene/announcement.gd" id="1_6f071"]
+[ext_resource type="FontFile" uid="uid://c5iouu02ne16w" path="res://UI/ChakraPetch-Bold.ttf" id="2_nrg1c"]
 
 [sub_resource type="Animation" id="Animation_6f071"]
 length = 0.001
@@ -98,14 +99,15 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -112.0
 offset_top = -44.0
-offset_right = 112.000244
-offset_bottom = 44.0
+offset_right = 142.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_nrg1c")
+theme_override_font_sizes/font_size = 70
 text = "FASTER"
 horizontal_alignment = 1
 
