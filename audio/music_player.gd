@@ -1,4 +1,3 @@
-class_name MusicPlayer
 extends AudioStreamPlayer
 
 var music = preload("res://audio/music/master-80bpm.ogg")
@@ -14,7 +13,7 @@ signal offbeat
 var beat_cumer:Cumer
 
 func beat_length() -> float:
-	return 60.0 / stream.bpm
+	return 60.0 / stream.bpm * pitch_scale
 
 func section_length() -> float:
 	return beat_length() * section_beats
@@ -27,7 +26,6 @@ func _set_section(i:int, offset:float=0):
 	beat_cumer.add(offset)
 
 func _on_beat():
-	print("beat")
 	beat.emit()
 	await get_tree().create_timer(beat_length()/2).timeout
 	offbeat.emit()
@@ -37,11 +35,15 @@ func _on_section_done():
 		current_section += 1
 	else:
 		_set_section(next_section)
+		section_played.emit()
 
-func _on_win():
-	next_section=WIN
-func _on_lose():
-	next_section=LOSS
+func speed_up(speed:float):
+	await play_section(SPEEDUP)
+	pitch_scale = speed
+
+func play_section(section:int):
+	_set_section(section)
+	await _on_section_done()
 
 func _ready():
 	stream = music
@@ -49,9 +51,7 @@ func _ready():
 	stream.bar_beats = 4
 	print("%f = %f" % [stream.get_length(), beat_length() * section_beats * 7])
 	beat_cumer = Cumer.new(stream.bpm/60, _on_beat)
-	next_section = SPEEDUP
-	Events.minigame_won.connect(_on_win)
-	Events.minigame_lost.connect(_on_lose)
+	next_section = MAIN
 	play()
 
 func _process(delta:float):
