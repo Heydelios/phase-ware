@@ -24,7 +24,7 @@ func _ready() -> void:
 		%text.text = "a"
 	var string := "wa"
 	var max_wa : int = 11
-	max_wa = (22 - %name.text.length())/2
+	max_wa = (20 - %name.text.length())/2
 	for i in range(randi_range(1,max_wa)):
 		%text.text += string
 
@@ -38,6 +38,8 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	if Minigame.get_game(self).game_ended:
+		return
 	%AnimationPlayer.play("banned")
 	if is_wrong:
 		get_parent().correct_ban()

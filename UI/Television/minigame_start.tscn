@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://cvvmpb42c1mgd" path="res://UI/ControlDisplay/control_display.gd" id="1_wq7y7"]
 [ext_resource type="Texture2D" uid="uid://b03ofxmc7gk0c" path="res://UI/ControlDisplay/wasd_icon.png" id="2_ydlbs"]
 [ext_resource type="FontFile" uid="uid://c5iouu02ne16w" path="res://UI/ChakraPetch-Bold.ttf" id="4_e26ue"]
+[ext_resource type="Texture2D" uid="uid://x76tx7uqqaod" path="res://UI/Television/noise.png" id="5_on05c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bayxi"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bayxi"]
 
 [node name="MinigameStart" type="Control" unique_id=2128154809]
 layout_mode = 3
@@ -37,6 +36,7 @@ metadata/_custom_type_script = "uid://cvvmpb42c1mgd"
 [node name="MinigameCounter" type="TextureRect" parent="." unique_id=1949970207]
 unique_name_in_owner = true
 visible = false
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(220, 220)
 layout_mode = 0
 offset_left = 530.0
@@ -66,10 +66,15 @@ vertical_alignment = 1
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 220)
-layout_mode = 0
-offset_left = 530.0
-offset_top = 58.0
-offset_right = 750.0
-offset_bottom = 278.0
-texture = SubResource("NoiseTexture2D_bayxi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 4.0
+offset_right = 212.0
+offset_bottom = -379.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_on05c")
 expand_mode = 1

@@ -90,9 +90,11 @@ func minigame_start(delta: float) -> void:
 	if timer >= start_anim_duration:
 		timer = 0
 		state = main_state.IN_GAME
+		%Foreground.visible = false
 		%GameAnchor.add_child(next_minigame)
 
 func minigame_end(delta: float) -> void:
+	%Foreground.visible = true
 	var end_anim_duration : float = .5
 	timer += delta
 	if timer >= end_anim_duration:
@@ -102,7 +104,6 @@ func minigame_end(delta: float) -> void:
 func boss_stage(delta: float) -> void:
 	var boss_anim_duration : float = 2
 	if timer == 0:
-		#Play Faster animation
 		var boss_scene = announcement.instantiate()
 		boss_scene.duration = boss_anim_duration
 		boss_scene.is_boss = true
@@ -172,6 +173,7 @@ func _on_minigame_lost() -> void:
 	
 func _on_minigame_end() -> void:
 	%HealthBar.anim_player.play("fade_in")
+	%Foreground.visible = true
 	anim_player.play("zoom_out")
 	stage_number += 1
 	load_next_minigame()

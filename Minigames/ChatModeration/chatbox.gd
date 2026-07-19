@@ -15,6 +15,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Minigame.get_game(self).game_ended:
+		return
 	timer += delta
 	total_time += delta
 	var rand := randf_range(.45, .9)
