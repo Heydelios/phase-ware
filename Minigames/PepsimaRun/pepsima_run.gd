@@ -22,7 +22,7 @@ var obstacle_list = [
 	[OBSTACLE_CONE,[-1,0,1]],
 	[OBSTACLE_FENCE,[-1,0]],
 	#[OBSTACLE_HAG,[-2,2]]
-	
+
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 		animation_player.play("idle_pepsima")
 	for asset in background_array:
 		asset.position.z-=SPEED*delta
-	
+
 	if Input.is_action_just_pressed("left")and lane_pos<2:
 		animation_player.play("side_left_pepsima")
 		lane_pos+=1
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 		await animation_player.animation_finished
 		animation_player.play("run_pepsima")
 func _on_build_timer_timeout() -> void:
-	var road_piece = SEGMENT.instantiate() 
+	var road_piece = SEGMENT.instantiate()
 	horizon_spawner.add_child(road_piece)
 	road_piece.position = horizon_spawner.position
 	road_piece.rotation_degrees.y = 90
@@ -92,11 +92,11 @@ func _on_obstacle_timer_timeout():
 	background_array.append(nos)
 	obstacle_spawn_timer.wait_time=randf_range(0.3,0.6)
 	obstacle_spawn_timer.start()
-	
+
 func FastEnd():
 	if !time_over:
 		Events.time_over.emit()
 
 
-	
-	
+
+

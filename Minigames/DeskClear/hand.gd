@@ -11,7 +11,7 @@ var item_count : int = 4
 
 func _ready() -> void:
 	Events.time_over.connect(on_loss)
-	
+
 	desk_start = %SpawnZone.position
 	desk_end = %SpawnZone.position + %SpawnZone.size
 	for i in range(item_count):
@@ -25,15 +25,15 @@ func _ready() -> void:
 	position = get_global_mouse_position()
 	mouse_position = get_global_mouse_position()
 
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-		
+
 	difference = mouse_position - get_global_mouse_position()
 	global_position -= difference
 	mouse_position = get_global_mouse_position()
 
-			
+
 	if Minigame.get_game(self).game_ended:
 		return
 
@@ -55,7 +55,7 @@ func drop_item(item : TextureRect) -> void:
 
 	if item_count == 0:
 		Minigame.win_game(self)
-		
+
 func on_loss() -> void:
 	if Minigame.get_game(self).game_ended:
 		return

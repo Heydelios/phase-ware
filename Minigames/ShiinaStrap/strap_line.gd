@@ -9,7 +9,7 @@ func _process(delta):
 	if Minigame.get_game(self).game_ended:
 			return
 	if points.size() > 0:
-		set_point_position(points.size()-1,get_global_mouse_position()) 
+		set_point_position(points.size()-1,get_global_mouse_position())
 
 func _on_button_2_pressed() -> void:
 	%Button2.disabled = true
@@ -39,7 +39,7 @@ func _on_button_5_pressed() -> void:
 	%Button5.visible = false
 	%AnimSprite.play("success")
 	Minigame.win_game(self)
-	
+
 func on_loss() -> void:
 	visible = false
 	%Button1.visible = false

@@ -10,11 +10,11 @@ var shoe_pos : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.time_over.connect(on_loss)
-	
+
 	var random_rot : float = randf_range(0,90)
 	#%Foot.rotation = random_rot
 	#%Shoe.rotation = random_rot
-	
+
 	%Foot.position = Vector2(randf_range(-80, 1080), randf_range(-190, 300))
 	%Shoe.position = Vector2(randf_range(-80, 1080), randf_range(-190, 300))
 	while dist_condition():
@@ -28,23 +28,23 @@ func dist_condition() -> bool:
 	if dist > 250:
 		return false
 	return true
-	
+
 func are_overlapping() -> bool:
 	if abs(%Shoe.position.x - %Foot.position.x) > 80:
 		#print("x", abs(%Shoe.position.x - %Foot.position.x))
 		return false
-		
+
 	if abs(%Shoe.position.y - %Foot.position.y) > 80:
 		#print("y", abs(%Shoe.position.y - %Foot.position.y))
 		return false
-	
+
 	return true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Minigame.get_game(self).game_ended:
 		return
-		
+
 	if dragging:
 		dist_condition()
 		print(position, "\t", get_global_mouse_position())

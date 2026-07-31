@@ -22,7 +22,7 @@ func get_cursor_index() -> int :
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Events.time_over.connect(on_loss)
-	
+
 	border_width = (window_height - play_area) / 2
 	for i in range(frames):
 		checkpoints.append(border_width + i*play_area/frames)
@@ -56,7 +56,7 @@ func six_seven() -> void:
 			going_up = true
 			swap_dir_counter += 1
 		return
-		
+
 	if cursor_id < %Jelly67.frame && going_up:
 		%Jelly67.frame -= 1
 		if %Jelly67.frame == 0:

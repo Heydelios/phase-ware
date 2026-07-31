@@ -13,7 +13,7 @@ func _unhandled_input(event):
 		if event.pressed and event.is_action_pressed("spacebar"):
 			Events.intro_end.emit()
 			queue_free()
-			
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

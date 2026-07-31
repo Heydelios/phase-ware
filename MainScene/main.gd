@@ -76,7 +76,7 @@ func minigame_start(delta: float) -> void:
 		main_screen.minigame_count = stage_number
 		%Background.add_child(main_screen)
 		should_transition = true
-	
+
 	timer += delta
 
 	if timer >= start_anim_duration-.2 && should_transition:
@@ -108,7 +108,7 @@ func boss_stage(delta: float) -> void:
 		boss_scene.duration = boss_anim_duration
 		boss_scene.is_boss = true
 		%TextAnchor.add_child(boss_scene)
-	
+
 	timer += delta
 	if timer >= boss_anim_duration:
 		timer = 0
@@ -116,14 +116,14 @@ func boss_stage(delta: float) -> void:
 
 func speed_up(delta: float) -> void:
 	var speed_up_duration : float = 2
-	
+
 	if timer == 0:
 		#Play Faster animation
 		Music.speed_up(speed + 0.5)
 		var announcement_scene = announcement.instantiate()
 		announcement_scene.duration = speed_up_duration
 		%TextAnchor.add_child(announcement_scene)
-		
+
 	timer += delta
 	if timer >= speed_up_duration:
 		speed += 0.5
@@ -149,7 +149,7 @@ func _on_minigame_won() -> void:
 	if wins % nb_of_wins_to_speedup == 0:
 		should_speedup = true
 		print("speed up")
-		
+
 	#if wins % nb_of_wins_to_boss == 0:
 		#should_start_boss = true
 		#print("boss")
@@ -158,10 +158,10 @@ func _on_minigame_won() -> void:
 	print("minigame won")
 	await get_tree().create_timer(win_anim_duration).timeout
 	_on_minigame_end()
-	
+
 func _on_minigame_lost() -> void:
 	lives -= 1
-	
+
 	#Play minigame lost animation
 	var loss_anim_duration : float = .5
 	%HealthBar.lose_hp(lives)
@@ -171,7 +171,7 @@ func _on_minigame_lost() -> void:
 		_on_game_over()
 		return
 	_on_minigame_end()
-	
+
 func _on_minigame_end() -> void:
 	%HealthBar.anim_player.play("fade_in")
 	%Foreground.visible = true
@@ -201,4 +201,3 @@ func _on_game_over() -> void:
 	gameover_scene.games_completed = wins
 	gameover_scene.max_speed = speed
 	%Background.add_child(gameover_scene)
-	

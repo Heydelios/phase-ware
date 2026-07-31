@@ -7,7 +7,7 @@ func _unhandled_input(event):
 			queue_free()
 		if event.pressed and event.is_action_pressed("up"):
 			_minigame_loss()
-		
+
 func _minigame_loss() -> void:
 	Events.minigame_lost.emit()
 	queue_free()

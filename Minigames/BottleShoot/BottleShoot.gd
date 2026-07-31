@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 			$Emote.set_texture(hitEmote)
 			$AnimationPlayer.play("Win")
 			Minigame.win_game(self)
-			await get_tree().create_timer(1).timeout 
+			await get_tree().create_timer(1).timeout
 			FastEnd()
 
 	if fire and !isOverlapping:

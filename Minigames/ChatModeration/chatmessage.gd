@@ -13,12 +13,12 @@ var is_wrong := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%name.text = name_array.pick_random()
-	
+
 	if randi_range(0,1) == 0:
 		%name.modulate = Color("a4a4a4")
 	else:
 		%name.modulate = Color("48954d")
-	
+
 	%text.text = ""
 	if !is_wrong:
 		%text.text = "a"

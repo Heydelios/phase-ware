@@ -19,7 +19,7 @@ func _ready() -> void:
 	audio_stream_player.stream = MEDS
 	audio_stream_player.pitch_scale= randf_range(0.8,1.3)
 	audio_stream_player.play()
-	
+
 
 func _process(delta: float) -> void:
 	if not target_reached:
@@ -31,9 +31,9 @@ func _process(delta: float) -> void:
 	else:
 		global_position.x+=direction*SPEED*delta
 
-		
-		
-	
+
+
+
 func hit():
 	hp-=1
 	if hp<=0:

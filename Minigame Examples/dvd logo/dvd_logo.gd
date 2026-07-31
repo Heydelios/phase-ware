@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	var world_size = get_parent().size
 	var max_x = world_size.x - r.size.x
 	var max_y = world_size.y - r.size.y
-	
+
 	if position.x < 0:
 		position.x = 0
 		velocity.x *= -1

@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Minigame.get_game(self).game_ended:
 		return
-		
+
 	var speed_factor : float = max(0.2, cos(rotation_degrees*coef))
 	rotation_degrees += rotation_dir * rotation_speed * speed_factor
 	if abs(rotation_degrees) > 45:
@@ -26,4 +26,4 @@ func loss_anim() -> void:
 	if Minigame.get_game(self).game_ended:
 		return
 	%AnimationPlayer.play("loss")
-	
+

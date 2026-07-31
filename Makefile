@@ -24,6 +24,6 @@ clean:
 	rm -rf export/*
 
 trim-whitespace:
-	find -name '*.gd' | xargs sed -Ei 's/[ 	]+$$//'
+	find -name '*.gd' | xargs -d '\n' sed -Ei 's/[ 	]+$$//'
 
 .PHONY: clean build build-windows build-linux trim-whitespace downscale-textures

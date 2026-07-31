@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if dragging:
 		position = get_global_mouse_position() - off - start_pos
-		
+
 	if falling:
 		position.y += fall_speed*delta
 

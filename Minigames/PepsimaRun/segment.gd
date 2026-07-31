@@ -13,4 +13,4 @@ func _ready() -> void:
 		var block:Node3D= blocks[randi_range(0,1)].instantiate()
 		slot.add_child(block)
 		block.rotation_degrees.y = 90*(randi_range(0,3))
-	
+

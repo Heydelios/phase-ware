@@ -13,16 +13,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Minigame.get_game(self).game_ended:
 		return
-	
+
 	position.x += x_vel*delta
-	
+
 	if position.x > %ParkingZone.position.x + %ParkingZone.size.x - size.x:
 		#Play loss anim crash
 		%BenzBroke.visible = true
 		%AnimPlayer.play("loss")
 		self_modulate = Color(1,1,1,0)
 		Minigame.lose_game(self)
-	
+
 	if is_braking:
 		x_vel *= .95
 		if x_vel < 5:

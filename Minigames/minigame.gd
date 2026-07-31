@@ -42,13 +42,13 @@ func _time_over() -> void:
 		else:
 			_minigame_loss()
 			Sfx.play_sfx("ring short")
-		
+
 		await get_tree().create_timer(minigame_end_duration).timeout
 	if game_won:
 		Events.minigame_won.emit()
 	else:
 		Events.minigame_lost.emit()
-		
+
 	queue_free()
 
 func _minigame_loss() -> void:
