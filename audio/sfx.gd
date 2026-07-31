@@ -11,7 +11,8 @@ func _add_audio_directory(dir:String):
 			if res:
 				var key = f.get_basename()
 				assert(key)
-				assert(not sfx.has(key))
+				if sfx.has(key):
+					print("Warn: deuplicate sfx entry for ",key)
 				sfx[key] = res
 		else:
 			_add_audio_directory(res_name)
@@ -32,8 +33,8 @@ func play_sfx(effect_name:String):
 	pb.play_stream(sfx[effect_name])
 
 func _ready():
+	_add_audio_directory("res://audio/plain_sfx")
 	_add_audio_directory("res://audio/bitcrushed_sfx")
 	_add_audio_directory("res://audio/eating")
-	_add_audio_directory("res://audio/plain_sfx")
 	stream = AudioStreamPolyphonic.new()
 	stream.polyphony = 8

@@ -22,6 +22,7 @@ func section_length() -> float:
 
 const section_beats = 8.0
 func _set_section(section:AudioStream):
+	end_section()
 	stream=section
 	stream.bpm = 80
 	stream.bar_beats = 4
@@ -40,12 +41,19 @@ func _on_section_done():
 	section_played.emit()
 
 func speed_up(speed:float):
-	pitch_scale = speed
 	await play_section(speedup)
+	pitch_scale = speed
 
+var _awaiting_section_done=false
 func play_section(section:AudioStream):
 	_set_section(section)
-	await get_tree().create_timer(section.get_length() / pitch_scale).timeout
+	_awaiting_section_done = true
+	await finished
+	_awaiting_section_done = false
+
+func end_section():
+	if _awaiting_section_done:
+		finished.emit()
 
 func _on_win():
 	next_section = win
@@ -53,6 +61,7 @@ func _on_loss():
 	next_section = loss
 
 func _ready():
+	finished.connect(_on_section_done)
 	_set_section(prelude)
 	beat_cumer = Cumer.new(stream.bpm/60, _on_beat)
 	Events.minigame_won.connect(_on_win)
@@ -65,11 +74,3 @@ func _ready():
 
 func _process(delta:float):
 	beat_cumer.add(delta*pitch_scale)
-	var pb = get_stream_playback()
-	if not pb:
-		_on_section_done()
-	else:
-		var time_left = stream.get_length() - pb.get_playback_position()
-		if time_left < 0:
-			_on_section_done()
-			print("finished section with %f overage" % -time_left)
