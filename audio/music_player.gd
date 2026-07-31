@@ -48,12 +48,12 @@ var _awaiting_section_done=false
 func play_section(section:AudioStream):
 	_set_section(section)
 	_awaiting_section_done = true
-	await finished
+	await section_played
 	_awaiting_section_done = false
 
 func end_section():
 	if _awaiting_section_done:
-		finished.emit()
+		section_played.emit()
 
 func _on_win():
 	next_section = win

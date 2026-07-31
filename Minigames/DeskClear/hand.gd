@@ -24,9 +24,8 @@ func _ready() -> void:
 	mouse_position = get_global_mouse_position()
 
 func _process(delta: float) -> void:
-	position = get_global_mouse_position()
-	if Minigame.get_game(self).game_ended:
-		return
+	if not Minigame.get_game(self).game_ended:
+		position = get_global_mouse_position()
 
 func outside_spawn_zone(v:Vector2) -> bool:
 	return not %SpawnZone.get_global_rect().has_point(v)
