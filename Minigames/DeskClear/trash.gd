@@ -24,8 +24,10 @@ func _on_button_button_down() -> void:
 	if falling:
 		return
 	dragging = true
+	Sfx.play_sfx("ui_click")
 	off = get_global_mouse_position() - global_position
 
 func _on_button_button_up() -> void:
 	dragging = false
+	Sfx.play_sfx("ui_unclick")
 	get_parent().get_parent().get_node("Hand").drop_item(self)
