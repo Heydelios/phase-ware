@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://csgfhmswtos4q"]
+
+[ext_resource type="Script" uid="uid://cb3vtjdfd4fhw" path="res://Minigames/NikkeClone/nc_enemy.gd" id="1_1kp1v"]
+[ext_resource type="Texture2D" uid="uid://di463uai5gvan" path="res://Minigames/NikkeClone/assets/enemy.png" id="2_mfufp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kp1v"]
+radius = 50.0
+height = 130.0
+
+[node name="Enemy" type="Node2D" unique_id=723534301]
+script = ExtResource("1_1kp1v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1596471981]
+
+[node name="Enemy" type="Sprite2D" parent="Area2D" unique_id=1455912520]
+position = Vector2(4, 5)
+texture = ExtResource("2_mfufp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=74506760]
+shape = SubResource("CapsuleShape2D_1kp1v")
+
+[node name="Timer" type="Timer" parent="." unique_id=1602575960]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=704506239]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bmvjnw2xpcjp4"]
+
+[ext_resource type="Script" uid="uid://d06eaf73qjjwe" path="res://Minigames/NikkeClone/nikke_clone.gd" id="1_483lo"]
+[ext_resource type="Texture2D" uid="uid://bfb7as2eqqa7t" path="res://Minigames/NikkeClone/assets/background.png" id="1_rqaq7"]
+[ext_resource type="Texture2D" uid="uid://fis18yhva6e" path="res://Minigames/NikkeClone/assets/reticle.png" id="3_jcsd3"]
+[ext_resource type="PackedScene" uid="uid://bf5gy570leb4q" path="res://UI/Clock/clock.tscn" id="4_2g5i5"]
+[ext_resource type="Texture2D" uid="uid://c3xuar6ndj2va" path="res://Minigames/NikkeClone/assets/player_aim.png" id="5_g12xk"]
+[ext_resource type="Texture2D" uid="uid://peta2if2tcsh" path="res://Minigames/NikkeClone/assets/player_idle.png" id="6_igg7i"]
+[ext_resource type="Texture2D" uid="uid://0kb0aspstc3c" path="res://Minigames/NikkeClone/assets/player_shoot_1.png" id="7_7okox"]
+[ext_resource type="Texture2D" uid="uid://ibhu4e4quxcg" path="res://Minigames/NikkeClone/assets/player_shoot_2.png" id="8_qw04a"]
+
+[sub_resource type="Animation" id="Animation_g12xk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_igg7i"]
+resource_name = "aim"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"aim"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_833xj"]
+resource_name = "idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7okox"]
+resource_name = "shoot"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"aim", &"shoot"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_shoot_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6gy2"]
+_data = {
+&"RESET": SubResource("Animation_g12xk"),
+&"aim": SubResource("Animation_igg7i"),
+&"idle": SubResource("Animation_833xj"),
+&"shoot": SubResource("Animation_7okox")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulcap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g12xk")
+}],
+"loop": true,
+"name": &"aim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_igg7i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7okox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qw04a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g12xk")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="NikkeClone" type="Control" unique_id=1659702610]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_483lo")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1327439454]
+position = Vector2(641, 361)
+texture = ExtResource("1_rqaq7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1175670132]
+libraries/ = SubResource("AnimationLibrary_e6gy2")
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=1488584668]
+visible = false
+position = Vector2(122, 117)
+
+[node name="Spawner2" type="Marker2D" parent="." unique_id=1750391342]
+visible = false
+position = Vector2(1037, 130)
+
+[node name="Timer" type="Timer" parent="." unique_id=518320366]
+wait_time = 0.5
+autostart = true
+
+[node name="Reticle" type="Sprite2D" parent="." unique_id=488895539]
+position = Vector2(542, 298)
+texture = ExtResource("3_jcsd3")
+
+[node name="Clock" parent="." unique_id=817307990 instance=ExtResource("4_2g5i5")]
+z_index = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 493.0
+offset_right = 226.0
+offset_bottom = 704.9996
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826436424]
+position = Vector2(617, 470)
+sprite_frames = SubResource("SpriteFrames_ulcap")
+animation = &"idle"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

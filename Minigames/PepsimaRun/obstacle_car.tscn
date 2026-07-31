@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d0qi6msqhrmd2"]
+
+[ext_resource type="PackedScene" uid="uid://crhue43buo7sh" path="res://Minigames/PepsimaRun/assets/obstacle_car.glb" id="1_vgtki"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0acp"]
+size = Vector3(3, 2, 8)
+
+[node name="ObstacleHag" type="Node3D" unique_id=1179050183]
+
+[node name="obstacle_car" parent="." unique_id=2125398574 instance=ExtResource("1_vgtki")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="obstacle_car" unique_id=1786233182]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_car/Area3D" unique_id=1359948931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1505818, 0)
+shape = SubResource("BoxShape3D_c0acp")

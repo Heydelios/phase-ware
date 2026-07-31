@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2wk6u6k8kgcn"]
+
+[ext_resource type="PackedScene" uid="uid://b3yv8ijkmgova" path="res://Minigames/PepsimaRun/assets/obstacle_hag.glb" id="1_ypapb"]
+
+[node name="ObstacleHag" type="Node3D" unique_id=1179050183]
+
+[node name="obstacle_hag" parent="." unique_id=1219800673 instance=ExtResource("1_ypapb")]

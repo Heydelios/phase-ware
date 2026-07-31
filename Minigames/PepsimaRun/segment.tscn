@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://g37u2xr1oaym"]
+
+[ext_resource type="Script" uid="uid://bokem6wx840dr" path="res://Minigames/PepsimaRun/segment.gd" id="1_85tty"]
+[ext_resource type="PackedScene" uid="uid://b5dgkv18fsyrs" path="res://Minigames/PepsimaRun/assets/road.glb" id="1_l1fna"]
+[ext_resource type="PackedScene" uid="uid://crq0uh28k6l5i" path="res://Minigames/PepsimaRun/assets/roundabout.glb" id="2_24pog"]
+
+[node name="Segment" type="Node3D" unique_id=1442468431]
+script = ExtResource("1_85tty")
+
+[node name="road" parent="." unique_id=469609228 instance=ExtResource("1_l1fna")]
+transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1, 0.8429489, 0, 0)
+
+[node name="road2" parent="." unique_id=1132260147 instance=ExtResource("1_l1fna")]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, 37.27768, 0, 0)
+
+[node name="road4" parent="." unique_id=993606143 instance=ExtResource("1_l1fna")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.558853, 0, 28.217978)
+
+[node name="road5" parent="." unique_id=1393788722 instance=ExtResource("1_l1fna")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.543787, 0, -25.704138)
+
+[node name="roundabout" parent="." unique_id=1216990427 instance=ExtResource("2_24pog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.561127, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=595458519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 2.633, -45)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=840324132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 2.633, 45)

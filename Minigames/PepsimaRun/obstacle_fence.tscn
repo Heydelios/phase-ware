@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://be7no2fv7d871"]
+
+[ext_resource type="PackedScene" uid="uid://xnpbvdg0urq" path="res://Minigames/PepsimaRun/assets/obstacle_fence.glb" id="1_vacai"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dv227"]
+size = Vector3(6, 2.5, 1)
+
+[node name="ObstacleFence" type="Node3D" unique_id=374309145]
+
+[node name="obstacle_fence" parent="." unique_id=1269488423 instance=ExtResource("1_vacai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9358349, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="obstacle_fence" unique_id=1908614529]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_fence/Area3D" unique_id=316611462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2357364, 0)
+shape = SubResource("BoxShape3D_dv227")
