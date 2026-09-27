@@ -27,6 +27,7 @@ func _ready() -> void:
 	max_wa = (20 - %name.text.length())/2
 	for i in range(randi_range(1,max_wa)):
 		%text.text += string
+	Sfx.play_sfx("ui_query")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,6 +42,7 @@ func _on_pressed() -> void:
 	if Minigame.get_game(self).game_ended:
 		return
 	%AnimationPlayer.play("banned")
+	Sfx.play_sfx("pistol")
 	if is_wrong:
 		get_parent().correct_ban()
 	else:

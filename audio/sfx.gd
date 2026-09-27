@@ -37,4 +37,5 @@ func _ready():
 	_add_audio_directory("res://audio/bitcrushed_sfx")
 	_add_audio_directory("res://audio/eating")
 	stream = AudioStreamPolyphonic.new()
+	bus = &"SFX"
 	stream.polyphony = 8
